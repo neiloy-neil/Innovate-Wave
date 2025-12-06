@@ -11,6 +11,12 @@ const ServicesOverviewSection: React.FC = () => {
   
   const [hoveredService, setHoveredService] = useState<string | null>(null);
   
+  // Handle navigation without full page refresh
+  const handleNavigation = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  
   return (
     <SectionContainer className="bg-gradient-to-br from-sky-50 to-cyan-50 relative overflow-hidden water-texture">
       {/* Underwater bubbles effect */}
@@ -97,7 +103,7 @@ const ServicesOverviewSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <a href="/services">
+            <button onClick={() => handleNavigation('/services')}>
               <Button 
                 variant="primary" 
                 size="large" 
@@ -105,7 +111,7 @@ const ServicesOverviewSection: React.FC = () => {
               >
                 Explore All Services
               </Button>
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>

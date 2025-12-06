@@ -7,6 +7,12 @@ import Button from '../components/Button';
 const TestimonialsSection: React.FC = () => {
   const [hoveredTestimonial, setHoveredTestimonial] = useState<string | null>(null);
   
+  // Handle navigation without full page refresh
+  const handleNavigation = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  
   return (
     <SectionContainer className="bg-gradient-to-br from-cyan-50 to-sky-100 relative overflow-hidden water-texture">
       {/* Ocean reflection effect */}
@@ -100,7 +106,7 @@ const TestimonialsSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <a href="/contact">
+            <button onClick={() => handleNavigation('/contact')}>
               <Button 
                 variant="primary" 
                 size="large" 
@@ -108,7 +114,7 @@ const TestimonialsSection: React.FC = () => {
               >
                 Join Our Fleet
               </Button>
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>

@@ -24,6 +24,12 @@ const CTABannerSection: React.FC = () => {
     createBubbles();
   }, []);
   
+  // Handle navigation without full page refresh
+  const handleNavigation = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  
   return (
     <SectionContainer className="deep-ocean-gradient relative overflow-hidden particle-effect">
       {/* Animated bubbles -->
@@ -85,7 +91,7 @@ const CTABannerSection: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <div className="inline-flex rounded-md shadow">
-            <a href="/contact">
+            <button onClick={() => handleNavigation('/contact')}>
               <Button 
                 variant="primary" 
                 size="large"
@@ -95,10 +101,10 @@ const CTABannerSection: React.FC = () => {
               >
                 Set Sail
               </Button>
-            </a>
+            </button>
           </div>
           <div className="inline-flex">
-            <a href="/services">
+            <button onClick={() => handleNavigation('/services')}>
               <Button 
                 variant="outline" 
                 size="large" 
@@ -108,7 +114,7 @@ const CTABannerSection: React.FC = () => {
               >
                 Explore Voyages
               </Button>
-            </a>
+            </button>
           </div>
         </motion.div>
       </motion.div>

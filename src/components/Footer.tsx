@@ -3,6 +3,12 @@ import { motion } from 'framer-motion';
 import Button from './Button';
 
 const Footer: React.FC = () => {
+  // Handle navigation without full page refresh
+  const handleNavigation = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  
   return (
     <footer className="bg-gradient-to-r from-[#0c4a6e] to-[#0284c7] text-white relative overflow-hidden">
       {/* Ocean depth effect */}
@@ -48,7 +54,7 @@ const Footer: React.FC = () => {
               Navigating the digital seas with creative solutions crafted in Bangladesh for global businesses.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="/services">
+              <button onClick={() => handleNavigation('/services')}>
                 <Button 
                   variant="primary" 
                   size="medium" 
@@ -56,8 +62,8 @@ const Footer: React.FC = () => {
                 >
                   Our Services
                 </Button>
-              </a>
-              <a href="/contact">
+              </button>
+              <button onClick={() => handleNavigation('/contact')}>
                 <Button 
                   variant="outline" 
                   size="medium" 
@@ -65,7 +71,7 @@ const Footer: React.FC = () => {
                 >
                   Get in Touch
                 </Button>
-              </a>
+              </button>
             </div>
           </motion.div>
           
@@ -78,16 +84,24 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services#web-design" className="text-[#bae6fd] hover:text-white">Web Design</a>
+                <button onClick={() => handleNavigation('/services#web-design')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                  Web Design
+                </button>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services#seo" className="text-[#bae6fd] hover:text-white">SEO</a>
+                <button onClick={() => handleNavigation('/services#seo')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                  SEO
+                </button>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services#affiliate-marketing" className="text-[#bae6fd] hover:text-white">Affiliate Marketing</a>
+                <button onClick={() => handleNavigation('/services#affiliate-marketing')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                  Affiliate Marketing
+                </button>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services" className="text-[#bae6fd] hover:text-white">View All Services</a>
+                <button onClick={() => handleNavigation('/services')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                  View All Services
+                </button>
               </motion.li>
             </ul>
           </motion.div>
@@ -101,13 +115,19 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/about" className="text-[#bae6fd] hover:text-white">About Us</a>
+                <button onClick={() => handleNavigation('/about')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                  About Us
+                </button>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/portfolio" className="text-[#bae6fd] hover:text-white">Portfolio</a>
+                <button onClick={() => handleNavigation('/portfolio')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                  Portfolio
+                </button>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/contact" className="text-[#bae6fd] hover:text-white">Contact</a>
+                <button onClick={() => handleNavigation('/contact')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                  Contact
+                </button>
               </motion.li>
             </ul>
           </motion.div>

@@ -1,10 +1,32 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import MainLayout from './layouts/MainLayout';
 import Homepage from './pages/Homepage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ContactPage from './pages/ContactPage';
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+  const [currentPage, setCurrentPage] = useState<string>('');
+
+  useEffect(() => {
+    // Get the current path and set the page
+    const path = window.location.pathname;
+    setCurrentPage(path);
+    
+    // Listen for popstate events (browser back/forward buttons)
+    const handlePopState = () => {
+      setCurrentPage(window.location.pathname);
+    };
+    
+    window.addEventListener('popstate', handlePopState);
+    
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
   useEffect(() => {
     const createBubble = () => {
       if (!containerRef.current) return;
@@ -41,10 +63,29 @@ const App: React.FC = () => {
     };
   }, []);
   
+  // Render the appropriate page based on the current path
+  const renderPage = () => {
+    switch (currentPage) {
+      case '/':
+        return <Homepage />;
+      case '/about':
+        return <AboutPage />;
+      case '/services':
+        return <ServicesPage />;
+      case '/portfolio':
+        return <PortfolioPage />;
+      case '/contact':
+        return <ContactPage />;
+      default:
+        // For any unknown routes, show the homepage
+        return <Homepage />;
+    }
+  };
+  
   return (
     <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-sky-50 to-cyan-100 relative overflow-hidden">
       <MainLayout>
-        <Homepage />
+        {renderPage()}
       </MainLayout>
     </div>
   );

@@ -45,6 +45,12 @@ const WhyChooseUsSection: React.FC = () => {
   
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
   
+  // Handle navigation without full page refresh
+  const handleNavigation = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  
   return (
     <SectionContainer className="deep-ocean-gradient relative overflow-hidden water-texture">
       {/* Deep sea bubbles effect */}
@@ -128,7 +134,7 @@ const WhyChooseUsSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <a href="/contact">
+            <button onClick={() => handleNavigation('/contact')}>
               <Button 
                 variant="secondary" 
                 size="large" 
@@ -136,7 +142,7 @@ const WhyChooseUsSection: React.FC = () => {
               >
                 Start Your Journey
               </Button>
-            </a>
+            </button>
           </motion.div>
         </div>
       </div>

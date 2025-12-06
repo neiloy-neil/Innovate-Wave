@@ -23,6 +23,12 @@ const HeroSection: React.FC = () => {
     createBubbles();
   }, []);
   
+  // Handle navigation without full page refresh
+  const handleNavigation = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  
   return (
     <div className="relative bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] overflow-hidden particle-effect">
       {/* Floating bubbles */}
@@ -90,7 +96,7 @@ const HeroSection: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <div className="rounded-md shadow">
-                  <a href="/services">
+                  <button onClick={() => handleNavigation('/services')}>
                     <Button 
                       variant="primary" 
                       size="large"
@@ -100,10 +106,10 @@ const HeroSection: React.FC = () => {
                     >
                       Dive In
                     </Button>
-                  </a>
+                  </button>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a href="/contact">
+                  <button onClick={() => handleNavigation('/contact')}>
                     <Button 
                       variant="outline" 
                       size="large" 
@@ -113,7 +119,7 @@ const HeroSection: React.FC = () => {
                     >
                       Explore More
                     </Button>
-                  </a>
+                  </button>
                 </div>
               </motion.div>
             </motion.div>
