@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "description": "Website for Innovate Wave digital agency",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "preview": "npx vite preview"
   },
   "keywords": [
     "digital-agency",
