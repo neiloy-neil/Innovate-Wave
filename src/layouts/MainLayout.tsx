@@ -42,7 +42,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   
   return (
     <div className="flex flex-col min-h-screen relative">
-      <Header />
+      <div className="z-50">
+        <Header />
+      </div>
       <main className="flex-grow relative pt-20">
         {children}
         {/* Ripple effects */}
