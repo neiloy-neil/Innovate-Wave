@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#dbeafe"/>
+  <rect x="50" y="50" width="300" height="40" fill="#93c5fd"/>
+  <rect x="50" y="110" width="140" height="120" fill="#93c5fd"/>
+  <rect x="210" y="110" width="140" height="120" fill="#93c5fd"/>
+  <text x="200" y="20" font-family="Arial" font-size="16" fill="#1e40af" text-anchor="middle">FinTech Dashboard</text>
+</svg>

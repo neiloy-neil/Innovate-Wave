@@ -1,0 +1,19 @@
+import React from 'react';
+import SectionContainer from '../components/SectionContainer';
+
+const ContactHeroSection: React.FC = () => {
+  return (
+    <SectionContainer className="bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] text-white">
+      <div className="max-w-3xl mx-auto text-center">
+        <h1 className="text-4xl font-extrabold sm:text-5xl md:text-6xl">
+          <span className="block">Get In Touch</span>
+        </h1>
+        <p className="mt-6 max-w-2xl mx-auto text-xl text-[#bae6fd]">
+          Ready to start your next creative project? We'd love to hear from you.
+        </p>
+      </div>
+    </SectionContainer>
+  );
+};
+
+export default ContactHeroSection;

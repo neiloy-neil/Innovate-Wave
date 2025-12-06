@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#dcfce7"/>
+  <circle cx="100" cy="80" r="40" fill="#4ade80"/>
+  <rect x="60" y="130" width="80" height="60" fill="#4ade80"/>
+  <text x="100" y="190" font-family="Arial" font-size="12" fill="#16a34a" text-anchor="middle">Baseem Wazid</text>
+</svg>
