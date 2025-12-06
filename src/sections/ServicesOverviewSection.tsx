@@ -4,7 +4,6 @@ import SectionContainer from '../components/SectionContainer';
 import { services } from '../data/mockData';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
 
 const ServicesOverviewSection: React.FC = () => {
   // Take only the first 4 services for the overview
@@ -98,7 +97,7 @@ const ServicesOverviewSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Link to="/services">
+            <a href="/services">
               <Button 
                 variant="primary" 
                 size="large" 
@@ -106,7 +105,7 @@ const ServicesOverviewSection: React.FC = () => {
               >
                 Explore All Services
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </div>

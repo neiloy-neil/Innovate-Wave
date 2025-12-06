@@ -3,7 +3,7 @@ import Button from '../components/Button';
 import { motion } from 'framer-motion';
 
 const HeroSection: React.FC = () => {
-  const [bubbles, setBubbles] = useState<{id: number, size: number, left: string, delay: number}[]>([]);
+  const [bubbles, setBubbles] = useState<Array<{id: number, size: number, left: string, delay: number}>>([]);
   
   useEffect(() => {
     // Create floating bubbles
@@ -90,26 +90,30 @@ const HeroSection: React.FC = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <div className="rounded-md shadow">
-                  <Button 
-                    variant="primary" 
-                    size="large"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="tech-glow"
-                  >
-                    Dive In
-                  </Button>
+                  <a href="/services">
+                    <Button 
+                      variant="primary" 
+                      size="large"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="tech-glow"
+                    >
+                      Dive In
+                    </Button>
+                  </a>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <Button 
-                    variant="outline" 
-                    size="large" 
-                    className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-[#bae6fd] tech-glow"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Explore More
-                  </Button>
+                  <a href="/contact">
+                    <Button 
+                      variant="outline" 
+                      size="large" 
+                      className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-[#bae6fd] tech-glow"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Explore More
+                    </Button>
+                  </a>
                 </div>
               </motion.div>
             </motion.div>

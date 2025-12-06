@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from './Button';
 
@@ -49,7 +48,7 @@ const Footer: React.FC = () => {
               Navigating the digital seas with creative solutions crafted in Bangladesh for global businesses.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link to="/services">
+              <a href="/services">
                 <Button 
                   variant="primary" 
                   size="medium" 
@@ -57,8 +56,8 @@ const Footer: React.FC = () => {
                 >
                   Our Services
                 </Button>
-              </Link>
-              <Link to="/contact">
+              </a>
+              <a href="/contact">
                 <Button 
                   variant="outline" 
                   size="medium" 
@@ -66,7 +65,7 @@ const Footer: React.FC = () => {
                 >
                   Get in Touch
                 </Button>
-              </Link>
+              </a>
             </div>
           </motion.div>
           
@@ -79,16 +78,16 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <Link to="/services#web-design" className="text-[#bae6fd] hover:text-white">Web Design</Link>
+                <a href="/services#web-design" className="text-[#bae6fd] hover:text-white">Web Design</a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <Link to="/services#seo" className="text-[#bae6fd] hover:text-white">SEO</Link>
+                <a href="/services#seo" className="text-[#bae6fd] hover:text-white">SEO</a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <Link to="/services#affiliate-marketing" className="text-[#bae6fd] hover:text-white">Affiliate Marketing</Link>
+                <a href="/services#affiliate-marketing" className="text-[#bae6fd] hover:text-white">Affiliate Marketing</a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <Link to="/services" className="text-[#bae6fd] hover:text-white">View All Services</Link>
+                <a href="/services" className="text-[#bae6fd] hover:text-white">View All Services</a>
               </motion.li>
             </ul>
           </motion.div>
@@ -102,13 +101,13 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <Link to="/about" className="text-[#bae6fd] hover:text-white">About Us</Link>
+                <a href="/about" className="text-[#bae6fd] hover:text-white">About Us</a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <Link to="/portfolio" className="text-[#bae6fd] hover:text-white">Portfolio</Link>
+                <a href="/portfolio" className="text-[#bae6fd] hover:text-white">Portfolio</a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <Link to="/contact" className="text-[#bae6fd] hover:text-white">Contact</Link>
+                <a href="/contact" className="text-[#bae6fd] hover:text-white">Contact</a>
               </motion.li>
             </ul>
           </motion.div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import SectionContainer from '../components/SectionContainer';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
 
 const WhyChooseUsSection: React.FC = () => {
   const features = [
@@ -129,7 +128,7 @@ const WhyChooseUsSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Link to="/contact">
+            <a href="/contact">
               <Button 
                 variant="secondary" 
                 size="large" 
@@ -137,7 +136,7 @@ const WhyChooseUsSection: React.FC = () => {
               >
                 Start Your Journey
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </div>

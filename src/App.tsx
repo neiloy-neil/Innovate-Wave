@@ -1,11 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Homepage from './pages/Homepage';
-import AboutPage from './pages/AboutPage';
-import ServicesPage from './pages/ServicesPage';
-import PortfolioPage from './pages/PortfolioPage';
-import ContactPage from './pages/ContactPage';
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,13 +44,7 @@ const App: React.FC = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-sky-50 to-cyan-100 relative overflow-hidden">
       <MainLayout>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+        <Homepage />
       </MainLayout>
     </div>
   );

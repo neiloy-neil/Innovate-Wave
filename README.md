@@ -11,9 +11,8 @@ This project is a complete website for Innovate Wave, a premium creative agency 
 - Responsive design using Tailwind CSS
 - Modular component architecture
 - TypeScript for type safety
-- React Router for navigation
 - SEO optimized
-- Modern UI/UX design
+- Modern UI/UX design with oceanic theme
 
 ## Pages
 
@@ -27,7 +26,7 @@ This project is a complete website for Innovate Wave, a premium creative agency 
 
 - **Frontend**: React, TypeScript, Tailwind CSS
 - **Build Tool**: Vite
-- **Routing**: React Router
+- **Animation**: Framer Motion
 - **Package Manager**: npm
 
 ## Folder Structure
@@ -62,6 +61,20 @@ src/
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
+
+## Deployment
+
+### Vercel Deployment
+
+This project is configured for easy deployment to Vercel:
+
+1. Push your code to a GitHub repository
+2. Log in to your Vercel account
+3. Click "New Project" and select your repository
+4. Vercel will automatically detect the project settings
+5. Click "Deploy" and your site will be live!
+
+The `vercel.json` file is included to handle client-side routing.
 
 ## Development Guidelines
 

@@ -1,8 +1,8 @@
 {
-  "name": "the-digital-dude",
+  "name": "innovate-wave",
+  "private": true,
   "version": "1.0.0",
-  "description": "Website for The Digital Dude digital agency",
-  "main": "index.js",
+  "description": "Website for Innovate Wave digital agency",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,15 +12,15 @@
     "digital-agency",
     "typescript",
     "react",
-    "vite"
+    "vite",
+    "innovate-wave"
   ],
-  "author": "The Digital Dude",
+  "author": "Innovate Wave",
   "license": "MIT",
   "dependencies": {
     "framer-motion": "^12.23.25",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

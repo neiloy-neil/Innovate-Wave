@@ -3,7 +3,6 @@ import SectionContainer from '../components/SectionContainer';
 import { testimonials } from '../data/mockData';
 import { motion } from 'framer-motion';
 import Button from '../components/Button';
-import { Link } from 'react-router-dom';
 
 const TestimonialsSection: React.FC = () => {
   const [hoveredTestimonial, setHoveredTestimonial] = useState<string | null>(null);
@@ -101,7 +100,7 @@ const TestimonialsSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Link to="/contact">
+            <a href="/contact">
               <Button 
                 variant="primary" 
                 size="large" 
@@ -109,7 +108,7 @@ const TestimonialsSection: React.FC = () => {
               >
                 Join Our Fleet
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </div>
       </div>

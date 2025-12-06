@@ -26,7 +26,7 @@ const CTABannerSection: React.FC = () => {
   
   return (
     <SectionContainer className="deep-ocean-gradient relative overflow-hidden particle-effect">
-      {/* Animated bubbles */}
+      {/* Animated bubbles -->
       <div className="absolute inset-0 overflow-hidden">
         {bubbles.map(bubble => (
           <motion.div
@@ -85,26 +85,30 @@ const CTABannerSection: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <div className="inline-flex rounded-md shadow">
-            <Button 
-              variant="primary" 
-              size="large"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="tech-glow"
-            >
-              Set Sail
-            </Button>
+            <a href="/contact">
+              <Button 
+                variant="primary" 
+                size="large"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="tech-glow"
+              >
+                Set Sail
+              </Button>
+            </a>
           </div>
           <div className="inline-flex">
-            <Button 
-              variant="outline" 
-              size="large" 
-              className="bg-white bg-opacity-10 text-white hover:bg-opacity-20 border-sky-300 tech-glow"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Explore Voyages
-            </Button>
+            <a href="/services">
+              <Button 
+                variant="outline" 
+                size="large" 
+                className="bg-white bg-opacity-10 text-white hover:bg-opacity-20 border-sky-300 tech-glow"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Explore Voyages
+              </Button>
+            </a>
           </div>
         </motion.div>
       </motion.div>

@@ -12,21 +12,28 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      // Create ripple effect on click
-      const newRipple = {
-        id: rippleId,
-        x: e.clientX,
-        y: e.clientY,
-        size: Math.random() * 40 + 20 // Random size between 20-60px
-      };
+      // Check if the clicked element is a link or button
+      const target = e.target as HTMLElement;
+      const isInteractiveElement = target.closest('a, button, input, textarea, select');
       
-      setRipples(prev => [...prev, newRipple]);
-      setRippleId(prev => prev + 1);
-      
-      // Remove ripple after animation
-      setTimeout(() => {
-        setRipples(prev => prev.filter(r => r.id !== newRipple.id));
-      }, 2000);
+      // Only create ripple effect if not clicking on interactive elements
+      if (!isInteractiveElement) {
+        // Create ripple effect on click
+        const newRipple = {
+          id: rippleId,
+          x: e.clientX,
+          y: e.clientY,
+          size: Math.random() * 40 + 20 // Random size between 20-60px
+        };
+        
+        setRipples(prev => [...prev, newRipple]);
+        setRippleId(prev => prev + 1);
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+          setRipples(prev => prev.filter(r => r.id !== newRipple.id));
+        }, 2000);
+      }
     };
     
     window.addEventListener('click', handleClick);
