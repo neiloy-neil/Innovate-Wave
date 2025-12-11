@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "description": "Website for Innovate Wave digital agency",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "npx vite",
+    "build": "npx vite build",
     "vercel-build": "npm install --prefer-online && npx vite build",
-    "preview": "vite preview"
+    "preview": "npx vite preview"
   },
   "keywords": [
     "digital-agency",
