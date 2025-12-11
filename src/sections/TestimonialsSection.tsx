@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SectionContainer from '../components/SectionContainer';
-import { testimonials } from '../data/mockData';
-import { motion } from 'framer-motion';
+import Card from '../components/Card';
 import Button from '../components/Button';
+import { testimonials } from '../data/mockData';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const TestimonialsSection: React.FC = () => {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [hoveredTestimonial, setHoveredTestimonial] = useState<string | null>(null);
   
-  // Handle navigation without full page refresh
-  const handleNavigation = (path: string) => {
-    window.history.pushState({}, '', path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
   
   return (
     <SectionContainer className="bg-gradient-to-br from-cyan-50 to-sky-100 relative overflow-hidden water-texture">
@@ -29,112 +33,109 @@ const TestimonialsSection: React.FC = () => {
         ></div>
       </div>
       
-      <motion.div 
-        className="text-center relative z-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className="text-3xl font-extrabold text-sky-900 sm:text-4xl">
-          Ocean Voyagers
-        </h2>
-        <p className="mt-4 max-w-2xl text-xl text-sky-700 lg:mx-auto">
-          Hear from brands that have sailed with us through digital waters
-        </p>
-      </motion.div>
+      <div className="text-center">
+        <motion.h2 
+          className="text-3xl font-extrabold text-sky-900 sm:text-4xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Voices from the Fleet
+        </motion.h2>
+        <motion.p 
+          className="mt-4 max-w-2xl text-xl text-sky-700 lg:mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Hear from businesses that have navigated success with Innovate Wave
+        </motion.p>
+      </div>
       
-      <div className="mt-16 relative z-10">
-        <div className="grid gap-8 md:grid-cols-2">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5, scale: 1.02 }}
-              onHoverStart={() => setHoveredTestimonial(testimonial.id)}
-              onHoverEnd={() => setHoveredTestimonial(null)}
-            >
-              <div className="bg-white p-8 rounded-lg shadow-sm tech-glow water-texture">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0">
-                    <motion.div 
-                      className="bg-gradient-to-br from-sky-200 to-cyan-300 border-2 border-sky-300 rounded-xl w-16 h-16"
-                      animate={{
-                        scale: hoveredTestimonial === testimonial.id ? 1.1 : 1
-                      }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </div>
-                  <div className="ml-4">
-                    <h4 className="text-lg font-bold text-sky-900">{testimonial.name}</h4>
-                    <p className="text-sky-700">{testimonial.role}, {testimonial.company}</p>
+      <div className="mt-16 max-w-4xl mx-auto">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentTestimonial}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card className="tech-glow water-texture p-8 md:p-12 relative overflow-hidden">
+              <div className="flex flex-col md:flex-row items-center">
+                <div className="flex-shrink-0 mb-6 md:mb-0 md:mr-8">
+                  <div className="bg-gradient-to-br from-cyan-400 to-sky-500 rounded-full w-24 h-24 flex items-center justify-center text-white text-3xl font-bold">
+                    {testimonials[currentTestimonial].name.charAt(0)}
                   </div>
                 </div>
-                <div className="mt-6">
-                  <p className="text-sky-700 italic">"{testimonial.content}"</p>
-                  <div className="mt-4 flex">
-                    {[...Array(5)].map((_, i) => (
-                      <motion.svg
-                        key={i}
-                        className={`h-5 w-5 ${i < (testimonial.rating || 0) ? 'text-cyan-400' : 'text-sky-200'}`}
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        whileHover={{ 
-                          scale: hoveredTestimonial === testimonial.id ? 1.2 : 1,
-                          rotate: hoveredTestimonial === testimonial.id ? 10 : 0
-                        }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                      >
+                <div className="text-center md:text-left flex-grow">
+                  <div className="flex justify-center md:justify-start mb-4">
+                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                      <svg key={i} className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </motion.svg>
+                      </svg>
                     ))}
+                  </div>
+                  <blockquote className="text-2xl font-medium text-sky-900 italic">
+                    "{testimonials[currentTestimonial].content}"
+                  </blockquote>
+                  <div className="mt-6">
+                    <p className="text-lg font-bold text-sky-800">{testimonials[currentTestimonial].name}</p>
+                    <p className="text-sky-600">{testimonials[currentTestimonial].role}, {testimonials[currentTestimonial].company}</p>
                   </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
-        
-        {/* CTA Button */}
-        <div className="mt-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <button onClick={() => handleNavigation('/contact')}>
-              <Button 
-                variant="primary" 
-                size="large" 
-                className="tech-glow px-8 py-4 text-lg font-bold"
-              >
-                Join Our Fleet
-              </Button>
-            </button>
+            </Card>
           </motion.div>
+        </AnimatePresence>
+        
+        <div className="flex justify-center mt-8 space-x-2">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentTestimonial(index)}
+              className={`w-3 h-3 rounded-full ${
+                index === currentTestimonial ? 'bg-sky-600' : 'bg-sky-200'
+              }`}
+              aria-label={`View testimonial ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
       
-      {/* Professional wave separator at bottom */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-        <svg 
-          className="relative block w-full h-[80px]" 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path 
-            fill="#0c4a6e" 
-            fillOpacity="0.2" 
-            d="M0,256L60,250.7C120,245,240,235,360,240C480,245,600,267,720,272C840,277,960,267,1080,245C1200,224,1320,192,1380,176L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-            className="wave-secondary"
-          ></path>
-        </svg>
-      </div>
+      <motion.div 
+        className="mt-16 text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <p className="text-sky-700 mb-8 max-w-2xl mx-auto">
+          Ready to chart your course to digital success? Join our fleet of innovative businesses today.
+        </p>
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+          <a href="/services">
+            <Button 
+              variant="primary" 
+              size="large" 
+              className="tech-glow px-8 py-4 text-lg font-bold btn-animated"
+            >
+              Explore Services
+            </Button>
+          </a>
+          <a href="/contact">
+            <Button 
+              variant="outline" 
+              size="large" 
+              className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-[#bae6fd] tech-glow px-8 py-4 text-lg font-bold btn-animated"
+            >
+              Get in Touch
+            </Button>
+          </a>
+        </div>
+      </motion.div>
     </SectionContainer>
   );
 };

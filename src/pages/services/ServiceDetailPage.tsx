@@ -303,15 +303,15 @@ const ServiceDetailPage: React.FC = () => {
     <SectionContainer className="bg-gradient-to-br from-sky-50 to-cyan-50 relative overflow-hidden water-texture py-20">
       {/* Back button */}
       <div className="mb-8">
-        <button 
-          onClick={() => window.history.back()}
+        <a 
+          href="/services"
           className="flex items-center text-sky-700 hover:text-sky-900 transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
           </svg>
           Back to Services
-        </button>
+        </a>
       </div>
 
       <motion.div
@@ -477,15 +477,12 @@ const ServiceDetailPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 1.0 }}
             >
               <p className="text-sky-700 mb-4">Ready to get started with {service.title}?</p>
-              <button 
-                onClick={() => {
-                  window.history.pushState({}, '', '/contact');
-                  window.dispatchEvent(new PopStateEvent('popstate'));
-                }}
-                className="px-6 py-3 bg-sky-600 text-white rounded-lg font-medium hover:bg-sky-700 transition-colors shadow-lg hover:shadow-sky-500/30"
+              <a 
+                href="/contact"
+                className="px-6 py-3 bg-sky-600 text-white rounded-lg font-medium hover:bg-sky-700 transition-colors shadow-lg hover:shadow-sky-500/30 inline-block"
               >
                 Contact Us
-              </button>
+              </a>
             </motion.div>
           </div>
         </Card>

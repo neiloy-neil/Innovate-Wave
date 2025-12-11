@@ -15,13 +15,7 @@ const PortfolioFilterSection: React.FC = () => {
   const filteredItems = activeCategory === 'All' 
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeCategory);
-  
-  // Handle navigation without full page refresh
-  const handleNavigation = (path: string) => {
-    window.history.pushState({}, '', path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  };
-  
+
   return (
     <SectionContainer className="bg-gradient-to-br from-sky-50 to-cyan-50 relative overflow-hidden water-texture">
       {/* Ocean surface ripples */}
@@ -30,105 +24,84 @@ const PortfolioFilterSection: React.FC = () => {
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 15, 50 10 T 100 10 L 100 20 L 0 20 Z' fill='rgba(2, 132, 199, 0.2)'/%3E%3C/svg%3E")`,
             backgroundSize: '150px 20px',
-            animation: 'float 12s linear infinite'
+            animation: 'float 8s ease-in-out infinite'
           }}
         ></div>
-        
-        {/* Floating particles */}
-        {[...Array(25)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-sky-200 opacity-20"
-            style={{
-              width: Math.random() * 12 + 4,
-              height: Math.random() * 12 + 4,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, Math.random() * 30 - 15],
-              x: [0, Math.random() * 20 - 10],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-              delay: Math.random() * 5,
-            }}
-          />
-        ))}
       </div>
       
-      <motion.div 
-        className="text-center relative z-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className="text-3xl font-extrabold text-sky-900 sm:text-4xl">
-          Oceanic Portfolio
-        </h2>
-        <p className="mt-4 max-w-2xl text-xl text-sky-700 lg:mx-auto">
-          Dive into our collection of successful digital voyages
-        </p>
-      </motion.div>
+      <div className="text-center">
+        <motion.h2 
+          className="text-3xl font-extrabold text-sky-900 sm:text-4xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Charting Success Stories
+        </motion.h2>
+        <motion.p 
+          className="mt-4 max-w-2xl text-xl text-sky-700 lg:mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Explore our portfolio of transformative digital solutions across diverse industries
+        </motion.p>
+      </div>
       
-      {/* Category Filters */}
+      {/* Category filters */}
       <motion.div 
-        className="mt-8 flex flex-wrap justify-center gap-2 relative z-10"
+        className="mt-12 flex flex-wrap justify-center gap-2"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
       >
-        {categories.map((category, index) => (
-          <motion.button
+        {categories.map(category => (
+          <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-4 py-2 rounded-full text-sm font-medium ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
               activeCategory === category
-                ? 'bg-sky-600 text-white tech-glow'
+                ? 'bg-sky-600 text-white shadow-md'
                 : 'bg-sky-100 text-sky-800 hover:bg-sky-200'
             }`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             {category}
-          </motion.button>
+          </button>
         ))}
       </motion.div>
       
-      {/* Portfolio Items */}
+      {/* Portfolio items grid */}
       <motion.div 
-        className="mt-12 relative z-10"
-        initial={{ opacity: 0, y: 20 }}
+        className="mt-12"
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item, index) => (
             <motion.div
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              onHoverStart={() => setHoveredItem(item.id)}
-              onHoverEnd={() => setHoveredItem(null)}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 * index }}
+              whileHover={{ y: -5 }}
+              className="h-full"
             >
-              <Card className="overflow-hidden tech-glow water-texture">
-                <div className="h-48 overflow-hidden">
+              <Card 
+                className="h-full flex flex-col tech-glow water-texture card-hover overflow-hidden"
+                onMouseEnter={() => setHoveredItem(item.id)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <div className="relative">
                   <motion.img 
                     src={item.imageUrl}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-48 object-cover"
                     animate={{
                       scale: hoveredItem === item.id ? 1.05 : 1
                     }}
@@ -137,59 +110,34 @@ const PortfolioFilterSection: React.FC = () => {
                       currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23bae6fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%230c4a6e'%3ENo Image Available%3C/text%3E%3C/svg%3E";
                     }}
                   />
-                </div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center">
-                    <motion.span 
-                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800"
-                      animate={{
-                        backgroundColor: hoveredItem === item.id ? "#0ea5e9" : "#bae6fd",
-                        color: hoveredItem === item.id ? "#fff" : "#0c4a6e"
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {item.category}
-                    </motion.span>
-                    <span className="text-sm text-sky-600">{item.date}</span>
-                  </div>
-                  <h3 className="mt-2 text-xl font-bold text-sky-900">{item.title}</h3>
-                  <p className="mt-2 text-sky-700 line-clamp-2">{item.description}</p>
-                  <div className="mt-4">
-                    <p className="text-sm text-sky-600">Client: {item.client}</p>
-                  </div>
-                  {item.link && (
-                    <motion.button
-                      onClick={() => handleNavigation(item.link!)}
-                      className="mt-4 px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                    <a 
+                      href={item.link} 
+                      className="px-4 py-2 bg-white text-sky-900 rounded-lg font-medium hover:bg-sky-100 transition-colors btn-animated"
                     >
                       View Project
-                    </motion.button>
-                  )}
+                    </a>
+                  </div>
+                </div>
+                <div className="p-4 flex-grow">
+                  <h3 className="font-bold text-lg text-sky-900">{item.title}</h3>
+                  <p className="text-sky-700 text-sm mt-1">{item.description}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.category}</span>
+                    <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.date}</span>
+                  </div>
+                  <a 
+                    href={item.link}
+                    className="mt-4 inline-block px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors btn-animated"
+                  >
+                    View Project
+                  </a>
                 </div>
               </Card>
             </motion.div>
           ))}
         </div>
       </motion.div>
-      
-      {/* Professional wave separator at bottom */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-        <svg 
-          className="relative block w-full h-[80px]" 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path 
-            fill="#0ea5e9" 
-            fillOpacity="0.2" 
-            d="M0,192L80,197.3C160,203,320,213,480,208C640,203,800,181,960,176C1120,171,1280,181,1360,186.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-            className="wave-primary"
-          ></path>
-        </svg>
-      </div>
     </SectionContainer>
   );
 };

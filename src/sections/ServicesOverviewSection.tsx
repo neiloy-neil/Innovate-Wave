@@ -90,6 +90,14 @@ const ServicesOverviewSection: React.FC = () => {
                   <h3 className="text-lg font-medium text-sky-900">{service.title}</h3>
                   <p className="mt-2 text-sky-700">{service.description}</p>
                 </div>
+                <div className="px-6 pb-6">
+                  <a 
+                    href={`/services/${service.id}`}
+                    className="w-full py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors block text-center"
+                  >
+                    Learn More
+                  </a>
+                </div>
               </Card>
             </motion.div>
           ))}

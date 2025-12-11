@@ -84,24 +84,29 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <button onClick={() => handleNavigation('/services#web-design')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                <a href="/services#web-design" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Web Design
-                </button>
+                </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <button onClick={() => handleNavigation('/services#seo')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                <a href="/services#branding" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                  Brand Identity
+                </a>
+              </motion.li>
+              <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
+                <a href="/services#seo" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   SEO
-                </button>
+                </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <button onClick={() => handleNavigation('/services#affiliate-marketing')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                <a href="/services#affiliate-marketing" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Affiliate Marketing
-                </button>
+                </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <button onClick={() => handleNavigation('/services')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                <a href="/services" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   View All Services
-                </button>
+                </a>
               </motion.li>
             </ul>
           </motion.div>
@@ -115,19 +120,19 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <button onClick={() => handleNavigation('/about')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                <a href="/about" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   About Us
-                </button>
+                </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <button onClick={() => handleNavigation('/portfolio')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                <a href="/portfolio" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Portfolio
-                </button>
+                </a>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <button onClick={() => handleNavigation('/contact')} className="text-[#bae6fd] hover:text-white cursor-pointer w-full text-left">
+                <a href="/contact" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Contact
-                </button>
+                </a>
               </motion.li>
             </ul>
           </motion.div>

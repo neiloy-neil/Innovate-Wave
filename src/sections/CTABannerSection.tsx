@@ -90,32 +90,28 @@ const CTABannerSection: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <div className="inline-flex rounded-md shadow">
-            <button onClick={() => handleNavigation('/contact')}>
-              <Button 
-                variant="primary" 
-                size="large"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="tech-glow"
-              >
-                Set Sail
-              </Button>
-            </button>
-          </div>
-          <div className="inline-flex">
-            <button onClick={() => handleNavigation('/services')}>
-              <Button 
-                variant="outline" 
-                size="large" 
-                className="bg-white bg-opacity-10 text-white hover:bg-opacity-20 border-sky-300 tech-glow"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Explore Voyages
-              </Button>
-            </button>
-          </div>
+          <a href="/services">
+            <Button 
+              variant="primary" 
+              size="large"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="tech-glow"
+            >
+              Explore Services
+            </Button>
+          </a>
+          <a href="/contact">
+            <Button 
+              variant="outline" 
+              size="large" 
+              className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-[#bae6fd] tech-glow"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get in Touch
+            </Button>
+          </a>
         </motion.div>
       </motion.div>
       

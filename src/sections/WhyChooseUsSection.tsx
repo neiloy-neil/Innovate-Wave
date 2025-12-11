@@ -134,15 +134,17 @@ const WhyChooseUsSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <button onClick={() => handleNavigation('/contact')}>
-              <Button 
-                variant="secondary" 
-                size="large" 
-                className="tech-glow px-8 py-4 text-lg font-bold bg-cyan-600 hover:bg-cyan-700"
-              >
-                Start Your Journey
-              </Button>
-            </button>
+            <div className="mt-8">
+              <a href="/contact">
+                <Button 
+                  variant="primary" 
+                  size="large"
+                  className="tech-glow px-8 py-4 text-lg font-bold"
+                >
+                  Begin Your Journey
+                </Button>
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>

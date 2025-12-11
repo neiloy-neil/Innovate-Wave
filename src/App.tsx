@@ -11,6 +11,7 @@ import ServiceDetailPage from './pages/services/ServiceDetailPage';
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentPage, setCurrentPage] = useState<string>('');
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   useEffect(() => {
     // Get the current path and set the page
@@ -19,7 +20,11 @@ const App: React.FC = () => {
     
     // Listen for popstate events (browser back/forward buttons)
     const handlePopState = () => {
-      setCurrentPage(window.location.pathname);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentPage(window.location.pathname);
+        setIsTransitioning(false);
+      }, 150);
     };
     
     window.addEventListener('popstate', handlePopState);
@@ -105,7 +110,9 @@ const App: React.FC = () => {
   return (
     <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-sky-50 to-cyan-100 relative overflow-hidden">
       <MainLayout>
-        {renderPage()}
+        <div className={`page-transition ${isTransitioning ? '' : 'appear'}`}>
+          {renderPage()}
+        </div>
       </MainLayout>
     </div>
   );
