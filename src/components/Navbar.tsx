@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from '../assets/innovatewavelogo.png';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +17,7 @@ const Navbar: React.FC = () => {
         <button onClick={() => handleNavigation('/')} className="flex items-center cursor-pointer">
           <div className="bg-white/10 p-2 rounded-xl backdrop-blur-sm border border-white/20">
             <img 
-              src="/src/assets/innovatewavelogo.png" 
+              src={logo} 
               alt="Innovate Wave" 
               className="h-14 w-auto"
             />
