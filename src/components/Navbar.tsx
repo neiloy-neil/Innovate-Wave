@@ -85,16 +85,34 @@ const Navbar: React.FC = () => {
         </div>
       </nav>
 
-      {/* Scroll to top button */}
+      {/* Ocean Drop Scroll to top button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-sky-600 text-white rounded-full shadow-lg hover:bg-sky-700 transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50"
+          className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-gradient-to-br from-cyan-400 to-sky-600 text-white rounded-full shadow-lg hover:from-cyan-300 hover:to-sky-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-50 group"
           aria-label="Scroll to top"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          {/* Ocean drop shape using SVG */}
+          <svg 
+            className="w-6 h-6 mx-auto transition-transform duration-300 group-hover:translate-y-[-2px]" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path 
+              d="M12 2C8 2 5 5 5 9C5 11.5 6.5 14 8.5 16C10.5 18 12 22 12 22C12 22 13.5 18 15.5 16C17.5 14 19 11.5 19 9C19 5 16 2 12 2Z" 
+              fill="currentColor"
+            />
+            <path 
+              d="M12 6C10.5 6 9 7 9 9C9 10.5 10 12 11 13C11.5 13.5 12 15 12 15C12 15 12.5 13.5 13 13C14 12 15 10.5 15 9C15 7 13.5 6 12 6Z" 
+              fill="white"
+            />
           </svg>
+          
+          {/* Ripple effect on hover */}
+          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-0 rounded-full animate-ping bg-cyan-300 opacity-20"></div>
+          </div>
         </button>
       )}
     </>

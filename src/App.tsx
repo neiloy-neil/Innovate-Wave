@@ -52,6 +52,13 @@ const App: React.FC = () => {
       // Random animation duration
       bubble.style.animationDuration = `${Math.random() * 15 + 10}s`;
       
+      // Random opacity
+      bubble.style.opacity = `${Math.random() * 0.5 + 0.1}`;
+      
+      // Random color variation
+      const hue = Math.floor(Math.random() * 30) + 180; // Blue-green range
+      bubble.style.backgroundColor = `hsla(${hue}, 70%, 80%, 0.3)`;
+      
       containerRef.current.appendChild(bubble);
       
       // Remove bubble after animation completes
@@ -63,7 +70,7 @@ const App: React.FC = () => {
     };
     
     // Create bubbles periodically
-    const bubbleInterval = setInterval(createBubble, 200);
+    const bubbleInterval = setInterval(createBubble, 150);
     
     return () => {
       clearInterval(bubbleInterval);

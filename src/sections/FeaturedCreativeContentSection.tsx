@@ -66,35 +66,38 @@ const FeaturedCreativeContentSection: React.FC = () => {
               onHoverStart={() => setHoveredItem(item.id)}
               onHoverEnd={() => setHoveredItem(null)}
             >
-              <Card className="overflow-hidden tech-glow water-texture">
-                <motion.div 
-                  className="h-48 bg-gradient-to-br from-sky-200 to-cyan-300"
-                  animate={{
-                    scale: hoveredItem === item.id ? 1.05 : 1
-                  }}
-                  transition={{ duration: 0.3 }}
-                ></motion.div>
-                <div className="p-6">
-                  <div className="flex justify-between items-center">
-                    <motion.span 
-                      className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800 capitalize"
-                      animate={{
-                        backgroundColor: hoveredItem === item.id ? "#0ea5e9" : "#bae6fd",
-                        color: hoveredItem === item.id ? "#fff" : "#0c4a6e"
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {item.type}
-                    </motion.span>
-                    <span className="text-sm text-sky-600">{item.date}</span>
+              {/* Make the entire card clickable */}
+              <a href={`/portfolio/${item.id}`} className="block h-full">
+                <Card className="overflow-hidden tech-glow water-texture h-full">
+                  <motion.div 
+                    className="h-48 bg-gradient-to-br from-sky-200 to-cyan-300"
+                    animate={{
+                      scale: hoveredItem === item.id ? 1.05 : 1
+                    }}
+                    transition={{ duration: 0.3 }}
+                  ></motion.div>
+                  <div className="p-6">
+                    <div className="flex justify-between items-center">
+                      <motion.span 
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800 capitalize"
+                        animate={{
+                          backgroundColor: hoveredItem === item.id ? "#0ea5e9" : "#bae6fd",
+                          color: hoveredItem === item.id ? "#fff" : "#0c4a6e"
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {item.type}
+                      </motion.span>
+                      <span className="text-sm text-sky-600">{item.date}</span>
+                    </div>
+                    <h3 className="mt-2 text-lg font-medium text-sky-900">{item.title}</h3>
+                    <p className="mt-1 text-sky-700">{item.description}</p>
+                    <div className="mt-4">
+                      <p className="text-sm text-sky-600">By {item.createdBy}</p>
+                    </div>
                   </div>
-                  <h3 className="mt-2 text-lg font-medium text-sky-900">{item.title}</h3>
-                  <p className="mt-1 text-sky-700">{item.description}</p>
-                  <div className="mt-4">
-                    <p className="text-sm text-sky-600">By {item.createdBy}</p>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </a>
             </motion.div>
           ))}
         </div>

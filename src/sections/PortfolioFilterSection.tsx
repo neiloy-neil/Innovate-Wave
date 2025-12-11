@@ -92,48 +92,49 @@ const PortfolioFilterSection: React.FC = () => {
               whileHover={{ y: -5 }}
               className="h-full"
             >
-              <Card 
-                className="h-full flex flex-col tech-glow water-texture card-hover overflow-hidden"
-                onMouseEnter={() => setHoveredItem(item.id)}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                <div className="relative">
-                  <motion.img 
-                    src={item.imageUrl}
-                    alt={item.title}
-                    className="w-full h-48 object-cover"
-                    animate={{
-                      scale: hoveredItem === item.id ? 1.05 : 1
-                    }}
-                    transition={{ duration: 0.3 }}
-                    onError={({ currentTarget }) => {
-                      currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23bae6fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%230c4a6e'%3ENo Image Available%3C/text%3E%3C/svg%3E";
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <a 
-                      href={item.link} 
-                      className="px-4 py-2 bg-white text-sky-900 rounded-lg font-medium hover:bg-sky-100 transition-colors btn-animated"
+              {/* Make the entire card clickable */}
+              <a href={item.link} className="block h-full">
+                <Card 
+                  className="h-full flex flex-col tech-glow water-texture card-hover overflow-hidden"
+                >
+                  <div className="relative">
+                    <motion.img 
+                      src={item.imageUrl}
+                      alt={item.title}
+                      className="w-full h-48 object-cover"
+                      animate={{
+                        scale: hoveredItem === item.id ? 1.05 : 1
+                      }}
+                      transition={{ duration: 0.3 }}
+                      onError={({ currentTarget }) => {
+                        currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23bae6fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%230c4a6e'%3ENo Image Available%3C/text%3E%3C/svg%3E";
+                      }}
+                      onMouseEnter={() => setHoveredItem(item.id)}
+                      onMouseLeave={() => setHoveredItem(null)}
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                      <span 
+                        className="px-4 py-2 bg-white text-sky-900 rounded-lg font-medium hover:bg-sky-100 transition-colors"
+                      >
+                        View Project
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4 flex-grow">
+                    <h3 className="font-bold text-lg text-sky-900">{item.title}</h3>
+                    <p className="text-sky-700 text-sm mt-1">{item.description}</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.category}</span>
+                      <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.date}</span>
+                    </div>
+                    <span 
+                      className="mt-4 inline-block px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors"
                     >
                       View Project
-                    </a>
+                    </span>
                   </div>
-                </div>
-                <div className="p-4 flex-grow">
-                  <h3 className="font-bold text-lg text-sky-900">{item.title}</h3>
-                  <p className="text-sky-700 text-sm mt-1">{item.description}</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.category}</span>
-                    <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.date}</span>
-                  </div>
-                  <a 
-                    href={item.link}
-                    className="mt-4 inline-block px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors btn-animated"
-                  >
-                    View Project
-                  </a>
-                </div>
-              </Card>
+                </Card>
+              </a>
             </motion.div>
           ))}
         </div>

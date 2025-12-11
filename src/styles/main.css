@@ -96,20 +96,20 @@
   }
 }
 
-/* Bubble animation */
+/* Bubble animation - more fluid and natural */
 @keyframes bubbleFloat {
   0% {
-    transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0) scale(1);
     opacity: 0;
   }
   10% {
-    opacity: 1;
+    opacity: 0.7;
   }
   90% {
-    opacity: 1;
+    opacity: 0.5;
   }
   100% {
-    transform: translateY(-100px) translateX(20px);
+    transform: translateY(-100vh) translateX(calc((var(--drift) - 0.5) * 100px)) scale(0.5);
     opacity: 0;
   }
 }
@@ -165,8 +165,25 @@
   position: absolute;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
-  animation: bubbleFloat 8s ease-in infinite;
-  bottom: -100px;
+  animation: bubbleFloat linear infinite;
+  bottom: -50px;
+  --drift: 0.5; /* Custom property for horizontal drift */
+}
+
+/* Ripple animation for ocean drop button */
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 1s ease-out infinite;
 }
 
 /* Tech glow effect */

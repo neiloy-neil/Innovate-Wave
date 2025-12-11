@@ -11,12 +11,6 @@ const ServicesOverviewSection: React.FC = () => {
   
   const [hoveredService, setHoveredService] = useState<string | null>(null);
   
-  // Handle navigation without full page refresh
-  const handleNavigation = (path: string) => {
-    window.history.pushState({}, '', path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  };
-  
   return (
     <SectionContainer className="bg-gradient-to-br from-sky-50 to-cyan-50 relative overflow-hidden water-texture">
       {/* Underwater bubbles effect */}
@@ -73,32 +67,34 @@ const ServicesOverviewSection: React.FC = () => {
               onHoverStart={() => setHoveredService(service.id)}
               onHoverEnd={() => setHoveredService(null)}
             >
-              <Card className="h-full tech-glow water-texture">
-                <div className="p-6">
-                  <motion.div 
-                    className="bg-sky-100 rounded-lg w-12 h-12 flex items-center justify-center mb-4"
-                    animate={{ 
-                      scale: hoveredService === service.id ? 1.1 : 1,
-                      rotate: hoveredService === service.id ? 5 : 0
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  >
-                    <svg className="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </motion.div>
-                  <h3 className="text-lg font-medium text-sky-900">{service.title}</h3>
-                  <p className="mt-2 text-sky-700">{service.description}</p>
-                </div>
-                <div className="px-6 pb-6">
-                  <a 
-                    href={`/services/${service.id}`}
-                    className="w-full py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors block text-center"
-                  >
-                    Learn More
-                  </a>
-                </div>
-              </Card>
+              {/* Make the entire card clickable */}
+              <a href={`/services/${service.id}`} className="block h-full">
+                <Card className="h-full tech-glow water-texture">
+                  <div className="p-6">
+                    <motion.div 
+                      className="bg-sky-100 rounded-lg w-12 h-12 flex items-center justify-center mb-4"
+                      animate={{ 
+                        scale: hoveredService === service.id ? 1.1 : 1,
+                        rotate: hoveredService === service.id ? 5 : 0
+                      }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                      <svg className="h-6 w-6 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </motion.div>
+                    <h3 className="text-lg font-medium text-sky-900">{service.title}</h3>
+                    <p className="mt-2 text-sky-700">{service.description}</p>
+                  </div>
+                  <div className="px-6 pb-6">
+                    <span 
+                      className="w-full py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors block text-center cursor-pointer"
+                    >
+                      Learn More
+                    </span>
+                  </div>
+                </Card>
+              </a>
             </motion.div>
           ))}
         </div>
@@ -111,7 +107,7 @@ const ServicesOverviewSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <button onClick={() => handleNavigation('/services')}>
+            <a href="/services">
               <Button 
                 variant="primary" 
                 size="large" 
@@ -119,7 +115,7 @@ const ServicesOverviewSection: React.FC = () => {
               >
                 Explore All Services
               </Button>
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>
