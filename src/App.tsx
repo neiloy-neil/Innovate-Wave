@@ -6,6 +6,7 @@ import ServicesPage from './pages/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
 import PortfolioDetailPage from './pages/PortfolioDetailPage';
+import ServiceDetailPage from './pages/services/ServiceDetailPage';
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -72,6 +73,15 @@ const App: React.FC = () => {
       const pathParts = currentPage.split('/');
       if (pathParts.length >= 3 && pathParts[2]) {
         return <PortfolioDetailPage />;
+      }
+    }
+    
+    // Check if it's a service detail page
+    if (currentPage.startsWith('/services/')) {
+      // Extract the service ID
+      const pathParts = currentPage.split('/');
+      if (pathParts.length >= 3 && pathParts[2]) {
+        return <ServiceDetailPage />;
       }
     }
     

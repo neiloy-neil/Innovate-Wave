@@ -4,6 +4,12 @@ import Card from '../components/Card';
 import { services } from '../data/mockData';
 
 const ServicesListSection: React.FC = () => {
+  // Handle navigation without full page refresh
+  const handleNavigation = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+
   return (
     <SectionContainer className="bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe]">
       <div className="text-center">
@@ -20,8 +26,9 @@ const ServicesListSection: React.FC = () => {
           {services.map((service, index) => (
             <Card 
               key={service.id} 
-              className="h-full flex flex-col tech-glow water-texture"
+              className="h-full flex flex-col tech-glow water-texture cursor-pointer hover:scale-105 transition-transform duration-300"
               id={service.id}
+              onClick={() => handleNavigation(`/services/${service.id}`)}
             >
               <div className="p-6 flex-grow">
                 <div className="bg-[#bae6fd] rounded-lg w-12 h-12 flex items-center justify-center mb-4">
@@ -43,6 +50,17 @@ const ServicesListSection: React.FC = () => {
                     ))}
                   </ul>
                 )}
+              </div>
+              <div className="px-6 pb-6">
+                <button 
+                  className="w-full py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNavigation(`/services/${service.id}`);
+                  }}
+                >
+                  Learn More
+                </button>
               </div>
             </Card>
           ))}
