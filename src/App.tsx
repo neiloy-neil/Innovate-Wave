@@ -10,37 +10,58 @@ import ServiceDetailPage from './pages/services/ServiceDetailPage';
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [currentPage, setCurrentPage] = useState<string>(window.location.pathname);
+  const [currentPage, setCurrentPage] = useState<string>('');
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
+  // Function to get current page path
+  const getCurrentPage = () => {
+    return window.location.pathname;
+  };
+
+  // Initialize and update currentPage
   useEffect(() => {
-    // Get the current path and set the page
-    const path = window.location.pathname;
-    setCurrentPage(path);
+    // Set initial page
+    setCurrentPage(getCurrentPage());
     
     // Listen for popstate events (browser back/forward buttons)
     const handlePopState = () => {
       setIsTransitioning(true);
       setTimeout(() => {
-        setCurrentPage(window.location.pathname);
+        setCurrentPage(getCurrentPage());
+        setIsTransitioning(false);
+      }, 150);
+    };
+    
+    // Listen for hashchange events
+    const handleHashChange = () => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentPage(getCurrentPage());
         setIsTransitioning(false);
       }, 150);
     };
     
     window.addEventListener('popstate', handlePopState);
-    
-    // Also listen for hashchange events
-    const handleHashChange = () => {
-      setCurrentPage(window.location.pathname);
-    };
-    
     window.addEventListener('hashchange', handleHashChange);
+    
+    // Also check for page changes periodically (in case of full refresh issues)
+    const interval = setInterval(() => {
+      const currentPath = getCurrentPage();
+      if (currentPath !== currentPage) {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setCurrentPage(currentPath);
+          setIsTransitioning(false);
+        }, 150);
+      }
+    }, 100);
     
     return () => {
       window.removeEventListener('popstate', handlePopState);
       window.removeEventListener('hashchange', handleHashChange);
+      clearInterval(interval);
     };
-  }, []);
+  }, [currentPage]);
 
   useEffect(() => {
     const createBubble = () => {
