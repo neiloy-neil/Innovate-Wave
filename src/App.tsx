@@ -10,7 +10,7 @@ import ServiceDetailPage from './pages/services/ServiceDetailPage';
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [currentPage, setCurrentPage] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState<string>(window.location.pathname);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
   useEffect(() => {
@@ -29,8 +29,16 @@ const App: React.FC = () => {
     
     window.addEventListener('popstate', handlePopState);
     
+    // Also listen for hashchange events
+    const handleHashChange = () => {
+      setCurrentPage(window.location.pathname);
+    };
+    
+    window.addEventListener('hashchange', handleHashChange);
+    
     return () => {
       window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
 
