@@ -5,6 +5,7 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
+import PortfolioDetailPage from './pages/PortfolioDetailPage';
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -65,6 +66,15 @@ const App: React.FC = () => {
   
   // Render the appropriate page based on the current path
   const renderPage = () => {
+    // Check if it's a portfolio detail page
+    if (currentPage.startsWith('/portfolio/')) {
+      // Extract the portfolio item ID
+      const pathParts = currentPage.split('/');
+      if (pathParts.length >= 3 && pathParts[2]) {
+        return <PortfolioDetailPage />;
+      }
+    }
+    
     switch (currentPage) {
       case '/':
         return <Homepage />;
