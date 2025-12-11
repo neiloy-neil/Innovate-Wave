@@ -16,6 +16,12 @@ const PortfolioFilterSection: React.FC = () => {
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeCategory);
   
+  // Handle navigation without full page refresh
+  const handleNavigation = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+  
   return (
     <SectionContainer className="bg-gradient-to-br from-sky-50 to-cyan-50 relative overflow-hidden water-texture">
       {/* Ocean surface ripples */}
@@ -127,6 +133,9 @@ const PortfolioFilterSection: React.FC = () => {
                       scale: hoveredItem === item.id ? 1.05 : 1
                     }}
                     transition={{ duration: 0.3 }}
+                    onError={({ currentTarget }) => {
+                      currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23bae6fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%230c4a6e'%3ENo Image Available%3C/text%3E%3C/svg%3E";
+                    }}
                   />
                 </div>
                 <div className="p-6">
@@ -150,6 +159,7 @@ const PortfolioFilterSection: React.FC = () => {
                   </div>
                   {item.link && (
                     <motion.button
+                      onClick={() => handleNavigation(item.link!)}
                       className="mt-4 px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}

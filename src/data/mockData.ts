@@ -102,7 +102,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/eco-life.jpg',
     client: 'EcoLife Apparel',
     date: '2023',
-    link: '#'
+    link: '/portfolio/1'
   },
   {
     id: '2',
@@ -112,7 +112,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/fintech-dashboard.jpg',
     client: 'WealthTrack Inc.',
     date: '2023',
-    link: '#'
+    link: '/portfolio/2'
   },
   {
     id: '3',
@@ -122,7 +122,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/restaurant-booking.jpg',
     client: 'GourmetHub',
     date: '2022',
-    link: '#'
+    link: '/portfolio/3'
   },
   {
     id: '4',
@@ -132,7 +132,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/health-branding.jpg',
     client: 'VitaWell',
     date: '2022',
-    link: '#'
+    link: '/portfolio/4'
   },
   {
     id: '5',
@@ -142,7 +142,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/travel-blog.jpg',
     client: 'Wanderlust Stories',
     date: '2023',
-    link: '#'
+    link: '/portfolio/5'
   },
   {
     id: '6',
@@ -152,7 +152,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/corporate-video.jpg',
     client: 'TechNova',
     date: '2023',
-    link: '#'
+    link: '/portfolio/6'
   },
   {
     id: '7',
@@ -162,7 +162,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/real-estate.jpg',
     client: 'OceanView Properties',
     date: '2023',
-    link: '#'
+    link: '/portfolio/7'
   },
   {
     id: '8',
@@ -172,7 +172,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/education-platform.jpg',
     client: 'EduLearn Global',
     date: '2022',
-    link: '#'
+    link: '/portfolio/8'
   },
   {
     id: '9',
@@ -182,7 +182,7 @@ export const portfolioItems: PortfolioItem[] = [
     imageUrl: '/src/assets/portfolio/fitness-app.jpg',
     client: 'UrbanFit',
     date: '2023',
-    link: '#'
+    link: '/portfolio/9'
   }
 ];
 
