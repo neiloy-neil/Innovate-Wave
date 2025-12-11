@@ -92,61 +92,97 @@ export const services: ServiceItem[] = [
   }
 ];
 
-// Mock portfolio data
+// Mock portfolio data with more detailed and diverse projects
 export const portfolioItems: PortfolioItem[] = [
   {
     id: '1',
-    title: 'EcoLife Brand Identity',
-    description: 'Complete brand identity for a sustainable fashion brand.',
+    title: 'EcoLife Sustainable Fashion Brand',
+    description: 'Complete brand identity and e-commerce website for a sustainable fashion brand. The project included logo design, brand guidelines, packaging design, and a fully responsive online store with integrated sustainability tracking.',
     category: 'Branding',
     imageUrl: '/src/assets/portfolio/eco-life.jpg',
     client: 'EcoLife Apparel',
-    date: '2023'
+    date: '2023',
+    link: '#'
   },
   {
     id: '2',
-    title: 'FinTech Campaign',
-    description: 'Integrated marketing campaign for a financial technology company.',
-    category: 'Campaign',
+    title: 'WealthTrack FinTech Dashboard',
+    description: 'User-centric dashboard design for a financial technology platform. We focused on complex data visualization, intuitive navigation, and a clean interface that makes personal finance management accessible to everyone.',
+    category: 'Web Design',
     imageUrl: '/src/assets/portfolio/fintech-dashboard.jpg',
     client: 'WealthTrack Inc.',
-    date: '2023'
+    date: '2023',
+    link: '#'
   },
   {
     id: '3',
-    title: 'Restaurant Branding',
-    description: 'Complete visual identity and menu design for a premium restaurant.',
+    title: 'GourmetHub Restaurant Experience',
+    description: 'Complete visual identity and digital presence for a premium restaurant chain. The project encompassed logo design, menu layout, website, mobile app, and social media templates that capture the essence of fine dining.',
     category: 'Branding',
     imageUrl: '/src/assets/portfolio/restaurant-booking.jpg',
     client: 'GourmetHub',
-    date: '2022'
+    date: '2022',
+    link: '#'
   },
   {
     id: '4',
-    title: 'Health & Wellness Campaign',
-    description: 'Complete brand identity and marketing campaign for a health supplement company.',
+    title: 'VitaWell Health & Wellness Campaign',
+    description: 'Integrated marketing campaign for a health supplement company targeting millennials. The campaign included social media content, influencer partnerships, email marketing, and a microsite that drove a 45% increase in online sales.',
     category: 'Campaign',
     imageUrl: '/src/assets/portfolio/health-branding.jpg',
     client: 'VitaWell',
-    date: '2022'
+    date: '2022',
+    link: '#'
   },
   {
     id: '5',
-    title: 'Travel Blog Visuals',
-    description: 'Visual content and brand identity for a travel blog.',
+    title: 'Wanderlust Travel Blog Visual Identity',
+    description: 'Visual content and brand identity for a travel blog with over 500K monthly readers. We created a distinctive visual style, custom illustrations, and a content system that increased reader engagement by 60%.',
     category: 'Content',
     imageUrl: '/src/assets/portfolio/travel-blog.jpg',
     client: 'Wanderlust Stories',
-    date: '2023'
+    date: '2023',
+    link: '#'
   },
   {
     id: '6',
-    title: 'Corporate Video Series',
-    description: 'Series of promotional videos for a tech company\'s product launches.',
+    title: 'TechNova Corporate Video Series',
+    description: 'Series of promotional videos for a tech company\'s product launches. The project included concept development, storyboarding, filming, and post-production for three product announcement videos that generated over 2M views.',
     category: 'Video',
     imageUrl: '/src/assets/portfolio/corporate-video.jpg',
     client: 'TechNova',
-    date: '2023'
+    date: '2023',
+    link: '#'
+  },
+  {
+    id: '7',
+    title: 'OceanView Real Estate Branding',
+    description: 'Luxury real estate branding for a coastal property developer. The project included logo design, marketing materials, virtual tour integration, and a responsive website that showcases properties with immersive 360° photography.',
+    category: 'Branding',
+    imageUrl: '/src/assets/portfolio/real-estate.jpg',
+    client: 'OceanView Properties',
+    date: '2023',
+    link: '#'
+  },
+  {
+    id: '8',
+    title: 'EduLearn Online Learning Platform',
+    description: 'User experience design for an online education platform serving 500K+ students. We focused on creating an intuitive learning path, gamification elements, and a responsive interface that works seamlessly across devices.',
+    category: 'Web Design',
+    imageUrl: '/src/assets/portfolio/education-platform.jpg',
+    client: 'EduLearn Global',
+    date: '2022',
+    link: '#'
+  },
+  {
+    id: '9',
+    title: 'UrbanFit Fitness App Campaign',
+    description: 'Mobile app marketing campaign for a fitness startup. The campaign included app store optimization, social media content, influencer partnerships, and targeted ads that achieved 100K downloads in the first month.',
+    category: 'Campaign',
+    imageUrl: '/src/assets/portfolio/fitness-app.jpg',
+    client: 'UrbanFit',
+    date: '2023',
+    link: '#'
   }
 ];
 

@@ -118,13 +118,17 @@ const PortfolioFilterSection: React.FC = () => {
               onHoverEnd={() => setHoveredItem(null)}
             >
               <Card className="overflow-hidden tech-glow water-texture">
-                <motion.div 
-                  className="h-48 bg-gradient-to-br from-sky-200 to-cyan-300"
-                  animate={{
-                    scale: hoveredItem === item.id ? 1.05 : 1
-                  }}
-                  transition={{ duration: 0.3 }}
-                ></motion.div>
+                <div className="h-48 overflow-hidden">
+                  <motion.img 
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                    animate={{
+                      scale: hoveredItem === item.id ? 1.05 : 1
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </div>
                 <div className="p-6">
                   <div className="flex justify-between items-center">
                     <motion.span 
@@ -140,10 +144,19 @@ const PortfolioFilterSection: React.FC = () => {
                     <span className="text-sm text-sky-600">{item.date}</span>
                   </div>
                   <h3 className="mt-2 text-xl font-bold text-sky-900">{item.title}</h3>
-                  <p className="mt-2 text-sky-700">{item.description}</p>
+                  <p className="mt-2 text-sky-700 line-clamp-2">{item.description}</p>
                   <div className="mt-4">
                     <p className="text-sm text-sky-600">Client: {item.client}</p>
                   </div>
+                  {item.link && (
+                    <motion.button
+                      className="mt-4 px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      View Project
+                    </motion.button>
+                  )}
                 </div>
               </Card>
             </motion.div>
