@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '../sections/HeroSection';
 import ServicesOverviewSection from '../sections/ServicesOverviewSection';
+import PortfolioPreviewSection from '../sections/PortfolioPreviewSection';
 import FeaturedCreativeContentSection from '../sections/FeaturedCreativeContentSection';
 import WhyChooseUsSection from '../sections/WhyChooseUsSection';
 import WorkflowSection from '../sections/WorkflowSection';
@@ -21,6 +22,7 @@ const Homepage: React.FC = () => {
     <div>
       <HeroSection />
       <ServicesOverviewSection />
+      <PortfolioPreviewSection />
       <FeaturedCreativeContentSection />
       <WhyChooseUsSection />
       <WorkflowSection />

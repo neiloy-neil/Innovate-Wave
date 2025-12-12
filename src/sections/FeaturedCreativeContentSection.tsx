@@ -3,12 +3,13 @@ import Card from '../components/Card';
 import SectionContainer from '../components/SectionContainer';
 import { creativeContent } from '../data/mockData';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const FeaturedCreativeContentSection: React.FC = () => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   
   return (
-    <SectionContainer className="bg-gradient-to-br from-cyan-50 to-sky-100 relative overflow-hidden water-texture">
+    <SectionContainer className="bg-gradient-to-br from-cyan-50/80 to-sky-100/80 backdrop-blur-sm relative overflow-hidden">
       {/* Underwater effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-sky-200 to-transparent opacity-30"></div>
@@ -67,8 +68,8 @@ const FeaturedCreativeContentSection: React.FC = () => {
               onHoverEnd={() => setHoveredItem(null)}
             >
               {/* Make the entire card clickable */}
-              <a href={`/portfolio/${item.id}`} className="block h-full">
-                <Card className="overflow-hidden tech-glow water-texture h-full">
+              <Link to={`/portfolio/${item.id}`} className="block h-full">
+                <Card className="overflow-hidden tech-glow water-texture h-full backdrop-blur-sm bg-white/50 border border-cyan-200/50">
                   <div className="h-48 overflow-hidden">
                     <motion.img 
                       src={item.imageUrl}
@@ -86,7 +87,7 @@ const FeaturedCreativeContentSection: React.FC = () => {
                   <div className="p-6">
                     <div className="flex justify-between items-center">
                       <motion.span 
-                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800 capitalize"
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-cyan-100 text-cyan-800 capitalize"
                         animate={{
                           backgroundColor: hoveredItem === item.id ? "#0ea5e9" : "#bae6fd",
                           color: hoveredItem === item.id ? "#fff" : "#0c4a6e"
@@ -104,7 +105,7 @@ const FeaturedCreativeContentSection: React.FC = () => {
                     </div>
                   </div>
                 </Card>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>
