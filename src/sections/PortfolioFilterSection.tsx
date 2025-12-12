@@ -18,7 +18,7 @@ const PortfolioFilterSection: React.FC = () => {
     : portfolioItems.filter(item => item.category === activeCategory);
 
   return (
-    <SectionContainer className="bg-gradient-to-br from-sky-50 to-cyan-50 relative overflow-hidden water-texture">
+    <SectionContainer className="bg-gradient-to-br from-sky-50/80 to-cyan-50/80 backdrop-blur-sm relative overflow-hidden">
       {/* Ocean surface ripples */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-20 opacity-30"
@@ -63,10 +63,10 @@ const PortfolioFilterSection: React.FC = () => {
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 tech-glow ${
               activeCategory === category
-                ? 'bg-sky-600 text-white shadow-md'
-                : 'bg-sky-100 text-sky-800 hover:bg-sky-200'
+                ? 'bg-gradient-to-r from-cyan-500 to-sky-600 text-white shadow-md'
+                : 'bg-white/50 text-sky-800 hover:bg-white/70 border border-cyan-200/50'
             }`}
           >
             {category}
@@ -94,7 +94,7 @@ const PortfolioFilterSection: React.FC = () => {
               className="h-full"
             >
               <Card 
-                className="h-full flex flex-col tech-glow water-texture card-hover overflow-hidden"
+                className="h-full flex flex-col tech-glow water-texture card-hover overflow-hidden backdrop-blur-sm bg-white/50 border border-cyan-200/50"
               >
                 <Link to={`/portfolio/${item.id}`} className="block h-full">
                   <div className="relative">
@@ -124,12 +124,12 @@ const PortfolioFilterSection: React.FC = () => {
                     <h3 className="font-bold text-lg text-sky-900">{item.title}</h3>
                     <p className="text-sky-700 text-sm mt-1">{item.description}</p>
                     <div className="mt-3 flex flex-wrap gap-2">
-                      <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.category}</span>
-                      <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.date}</span>
+                      <span className="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs rounded-full">{item.category}</span>
+                      <span className="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs rounded-full">{item.date}</span>
                     </div>
                     <div className="mt-4">
                       <span 
-                        className="inline-block px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors"
+                        className="inline-block px-4 py-2 bg-gradient-to-r from-cyan-500 to-sky-600 text-white rounded-lg text-sm font-medium hover:from-cyan-400 hover:to-sky-500 transition-all duration-300 shadow-md hover:shadow-lg"
                       >
                         View Project
                       </span>

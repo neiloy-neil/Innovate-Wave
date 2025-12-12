@@ -9,10 +9,10 @@ const ServicesListSection: React.FC = () => {
   const [hoveredService, setHoveredService] = useState<string | null>(null);
 
   return (
-    <SectionContainer className="bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe]">
+    <SectionContainer className="bg-gradient-to-br from-sky-50/80 to-cyan-50/80 backdrop-blur-sm">
       <div className="text-center">
         <motion.h2 
-          className="text-3xl font-extrabold text-[#0c4a6e] sm:text-4xl"
+          className="text-3xl font-extrabold text-sky-900 sm:text-4xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -21,7 +21,7 @@ const ServicesListSection: React.FC = () => {
           Navigating Your Success
         </motion.h2>
         <motion.p 
-          className="mt-4 max-w-2xl text-xl text-[#0284c7] lg:mx-auto"
+          className="mt-4 max-w-2xl text-xl text-sky-700 lg:mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -50,27 +50,27 @@ const ServicesListSection: React.FC = () => {
               className="h-full"
             >
               <Card 
-                className="h-full flex flex-col tech-glow water-texture card-hover"
+                className="h-full flex flex-col tech-glow water-texture card-hover backdrop-blur-sm bg-white/50 border border-cyan-200/50"
                 id={service.id}
                 onMouseEnter={() => setHoveredService(service.id)}
                 onMouseLeave={() => setHoveredService(null)}
               >
                 <div className="p-6 flex-grow">
-                  <div className="bg-[#bae6fd] rounded-lg w-12 h-12 flex items-center justify-center mb-4">
-                    <svg className="h-6 w-6 text-[#0284c7]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-cyan-100 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                    <svg className="h-6 w-6 text-cyan-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-[#0c4a6e]">{service.title}</h3>
-                  <p className="mt-2 text-[#0284c7]">{service.description}</p>
+                  <h3 className="text-xl font-bold text-sky-900">{service.title}</h3>
+                  <p className="mt-2 text-sky-700">{service.description}</p>
                   {service.features && (
                     <ul className="mt-4 space-y-2">
                       {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start">
-                          <svg className="h-5 w-5 text-[#0ea5e9] mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <svg className="h-5 w-5 text-cyan-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
-                          <span className="text-[#0284c7]">{feature}</span>
+                          <span className="text-sky-700">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -79,7 +79,7 @@ const ServicesListSection: React.FC = () => {
                 <div className="px-6 pb-6">
                   <Link 
                     to={`/services/${service.id}`}
-                    className="w-full py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors block text-center btn-animated"
+                    className="w-full py-2 bg-gradient-to-r from-cyan-500 to-sky-600 text-white rounded-lg text-sm font-medium hover:from-cyan-400 hover:to-sky-500 transition-all duration-300 block text-center btn-animated shadow-md hover:shadow-lg"
                   >
                     Learn More
                   </Link>

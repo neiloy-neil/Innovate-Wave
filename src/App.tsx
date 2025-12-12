@@ -73,7 +73,7 @@ const App: React.FC = () => {
   }, []);
   
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-sky-50 to-cyan-100 relative overflow-hidden">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-sky-50 to-cyan-100 relative overflow-hidden particle-effect water-texture">
       <RouterProvider router={router} />
     </div>
   );

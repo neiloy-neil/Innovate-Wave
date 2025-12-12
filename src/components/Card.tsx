@@ -21,7 +21,7 @@ const Card: React.FC<CardProps> = ({
   whileTap,
   ...props
 }) => {
-  const baseClasses = 'bg-white rounded-xl shadow-md overflow-hidden backdrop-blur-sm transition-all duration-300 ease-in-out border border-[#bae6fd]';
+  const baseClasses = 'bg-white/70 rounded-xl shadow-md overflow-hidden backdrop-blur-sm transition-all duration-300 ease-in-out border border-cyan-200/50 water-texture tech-glow';
   const clickableClasses = onClick ? 'cursor-pointer hover:shadow-lg' : '';
   
   const classes = `${baseClasses} ${clickableClasses} ${className}`;

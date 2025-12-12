@@ -11,7 +11,7 @@ const SectionContainer: React.FC<SectionContainerProps> = ({
   className = '',
   id
 }) => {
-  const baseClasses = 'py-20 px-4 sm:px-6 lg:px-8 relative fade-in';
+  const baseClasses = 'py-20 px-4 sm:px-6 lg:px-8 relative fade-in water-texture particle-effect';
   const classes = `${baseClasses} ${className}`;
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
