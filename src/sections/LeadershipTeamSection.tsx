@@ -21,7 +21,7 @@ const LeadershipTeamSection: React.FC = () => {
             <Card key={member.id} className="overflow-hidden">
               <div className="md:flex">
                 <div className="md:flex-shrink-0">
-                  <div className="h-48 w-full md:w-48 bg-gray-200"></div>
+                  <img className="h-48 w-full md:w-48 object-cover" src={member.imageUrl} alt={member.name} />
                 </div>
                 <div className="p-8">
                   <div className="uppercase tracking-wide text-sm text-teal-500 font-semibold">{member.role}</div>

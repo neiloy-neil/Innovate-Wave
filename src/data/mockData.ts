@@ -1,5 +1,26 @@
 import { ServiceItem, PortfolioItem, Testimonial, TeamMember, CreativeContentItem } from './interfaces';
 
+// Import portfolio images
+import ecoLifeImg from '../assets/portfolio/eco-life.jpg';
+import fintechDashboardImg from '../assets/portfolio/fintech-dashboard.jpg';
+import restaurantBookingImg from '../assets/portfolio/restaurant-booking.jpg';
+import healthBrandingImg from '../assets/portfolio/health-branding.jpg';
+import travelBlogImg from '../assets/portfolio/travel-blog.jpg';
+import corporateVideoImg from '../assets/portfolio/corporate-video.jpg';
+import realEstateImg from '../assets/portfolio/real-estate.jpg';
+import educationPlatformImg from '../assets/portfolio/education-platform.jpg';
+import fitnessAppImg from '../assets/portfolio/fitness-app.jpg';
+
+// Import team images
+import baseemImg from '../assets/team/baseem.jpg';
+import farhadImg from '../assets/team/farhad.jpg';
+
+// Import creative content images
+import summerCampaignImg from '../assets/creative/summer-campaign.jpg';
+import technovaReelImg from '../assets/creative/technova-reel.jpg';
+import wanderlustIdentityImg from '../assets/creative/wanderlust-identity.jpg';
+import vitawellPackagingImg from '../assets/creative/vitawell-packaging.jpg';
+
 // Mock services data - focused on creative services
 export const services: ServiceItem[] = [
   {
@@ -99,7 +120,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'EcoLife Sustainable Fashion Brand',
     description: 'Complete brand identity and e-commerce website for a sustainable fashion brand. The project included logo design, brand guidelines, packaging design, and a fully responsive online store with integrated sustainability tracking.',
     category: 'Branding',
-    imageUrl: '/src/assets/portfolio/eco-life.jpg',
+    imageUrl: ecoLifeImg,
     client: 'EcoLife Apparel',
     date: '2023',
     link: '/portfolio/1'
@@ -109,7 +130,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'WealthTrack FinTech Dashboard',
     description: 'User-centric dashboard design for a financial technology platform. We focused on complex data visualization, intuitive navigation, and a clean interface that makes personal finance management accessible to everyone.',
     category: 'Web Design',
-    imageUrl: '/src/assets/portfolio/fintech-dashboard.jpg',
+    imageUrl: fintechDashboardImg,
     client: 'WealthTrack Inc.',
     date: '2023',
     link: '/portfolio/2'
@@ -119,7 +140,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'GourmetHub Restaurant Experience',
     description: 'Complete visual identity and digital presence for a premium restaurant chain. The project encompassed logo design, menu layout, website, mobile app, and social media templates that capture the essence of fine dining.',
     category: 'Branding',
-    imageUrl: '/src/assets/portfolio/restaurant-booking.jpg',
+    imageUrl: restaurantBookingImg,
     client: 'GourmetHub',
     date: '2022',
     link: '/portfolio/3'
@@ -129,7 +150,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'VitaWell Health & Wellness Campaign',
     description: 'Integrated marketing campaign for a health supplement company targeting millennials. The campaign included social media content, influencer partnerships, email marketing, and a microsite that drove a 45% increase in online sales.',
     category: 'Campaign',
-    imageUrl: '/src/assets/portfolio/health-branding.jpg',
+    imageUrl: healthBrandingImg,
     client: 'VitaWell',
     date: '2022',
     link: '/portfolio/4'
@@ -139,7 +160,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Wanderlust Travel Blog Visual Identity',
     description: 'Visual content and brand identity for a travel blog with over 500K monthly readers. We created a distinctive visual style, custom illustrations, and a content system that increased reader engagement by 60%.',
     category: 'Content',
-    imageUrl: '/src/assets/portfolio/travel-blog.jpg',
+    imageUrl: travelBlogImg,
     client: 'Wanderlust Stories',
     date: '2023',
     link: '/portfolio/5'
@@ -149,7 +170,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'TechNova Corporate Video Series',
     description: 'Series of promotional videos for a tech company\'s product launches. The project included concept development, storyboarding, filming, and post-production for three product announcement videos that generated over 2M views.',
     category: 'Video',
-    imageUrl: '/src/assets/portfolio/corporate-video.jpg',
+    imageUrl: corporateVideoImg,
     client: 'TechNova',
     date: '2023',
     link: '/portfolio/6'
@@ -159,7 +180,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'OceanView Real Estate Branding',
     description: 'Luxury real estate branding for a coastal property developer. The project included logo design, marketing materials, virtual tour integration, and a responsive website that showcases properties with immersive 360° photography.',
     category: 'Branding',
-    imageUrl: '/src/assets/portfolio/real-estate.jpg',
+    imageUrl: realEstateImg,
     client: 'OceanView Properties',
     date: '2023',
     link: '/portfolio/7'
@@ -169,7 +190,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'EduLearn Online Learning Platform',
     description: 'User experience design for an online education platform serving 500K+ students. We focused on creating an intuitive learning path, gamification elements, and a responsive interface that works seamlessly across devices.',
     category: 'Web Design',
-    imageUrl: '/src/assets/portfolio/education-platform.jpg',
+    imageUrl: educationPlatformImg,
     client: 'EduLearn Global',
     date: '2022',
     link: '/portfolio/8'
@@ -179,7 +200,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'UrbanFit Fitness App Campaign',
     description: 'Mobile app marketing campaign for a fitness startup. The campaign included app store optimization, social media content, influencer partnerships, and targeted ads that achieved 100K downloads in the first month.',
     category: 'Campaign',
-    imageUrl: '/src/assets/portfolio/fitness-app.jpg',
+    imageUrl: fitnessAppImg,
     client: 'UrbanFit',
     date: '2023',
     link: '/portfolio/9'
@@ -229,14 +250,14 @@ export const teamMembers: TeamMember[] = [
     name: 'Baseem Wazid',
     role: 'Creative Director',
     bio: 'Baseem drives our creative vision and strategic marketing efforts. His expertise in visual storytelling has helped numerous brands establish strong market positions.',
-    imageUrl: '/src/assets/team/baseem.jpg'
+    imageUrl: baseemImg
   },
   {
     id: 'creative-team',
     name: 'Creative Team',
     role: 'Design & Production',
     bio: 'Our talented team of designers, photographers, and content creators work together to bring your creative visions to life.',
-    imageUrl: '/src/assets/team/farhad.jpg'
+    imageUrl: farhadImg
   }
 ];
 
@@ -247,7 +268,7 @@ export const creativeContent: CreativeContentItem[] = [
     title: 'Summer Campaign 2023',
     description: 'Vibrant campaign visuals for EcoLife Apparel\'s summer collection',
     type: 'campaign',
-    imageUrl: '/src/assets/creative/summer-campaign.jpg',
+    imageUrl: summerCampaignImg,
     createdBy: 'Baseem Wazid',
     date: '2023-06-15'
   },
@@ -256,7 +277,7 @@ export const creativeContent: CreativeContentItem[] = [
     title: 'TechNova Product Reel',
     description: 'Dynamic product showcase video for TechNova\'s latest release',
     type: 'video',
-    imageUrl: '/src/assets/creative/technova-reel.jpg',
+    imageUrl: technovaReelImg,
     createdBy: 'Baseem Wazid',
     date: '2023-04-22'
   },
@@ -265,7 +286,7 @@ export const creativeContent: CreativeContentItem[] = [
     title: 'Wanderlust Stories Brand Identity',
     description: 'Complete visual identity for the travel blog brand',
     type: 'design',
-    imageUrl: '/src/assets/creative/wanderlust-identity.jpg',
+    imageUrl: wanderlustIdentityImg,
     createdBy: 'Baseem Wazid',
     date: '2023-03-10'
   },
@@ -274,7 +295,7 @@ export const creativeContent: CreativeContentItem[] = [
     title: 'VitaWell Packaging Design',
     description: 'Sustainable packaging concept for health supplements',
     type: 'design',
-    imageUrl: '/src/assets/creative/vitawell-packaging.jpg',
+    imageUrl: vitawellPackagingImg,
     createdBy: 'Baseem Wazid',
     date: '2023-01-18'
   }

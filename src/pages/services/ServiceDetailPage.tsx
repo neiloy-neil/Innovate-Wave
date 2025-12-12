@@ -5,6 +5,29 @@ import SectionContainer from '../../components/SectionContainer';
 import Card from '../../components/Card';
 import { motion } from 'framer-motion';
 
+// Import all service images
+import webDesignImg from '../../assets/services/web-design.jpg';
+import seoImg from '../../assets/services/seo.jpg';
+import affiliateMarketingImg from '../../assets/services/affiliate-marketing.jpg';
+import brandingImg from '../../assets/services/branding.jpg';
+import creativeContentImg from '../../assets/services/creative-content.jpg';
+import socialMediaImg from '../../assets/services/social-media.jpg';
+import campaignsImg from '../../assets/services/campaigns.jpg';
+import videoProductionImg from '../../assets/services/video-production.jpg';
+import defaultServiceImg from '../../assets/services/default-service.jpg';
+
+// Create a mapping of service IDs to images
+const serviceImages: Record<string, string> = {
+  'web-design': webDesignImg,
+  'seo': seoImg,
+  'affiliate-marketing': affiliateMarketingImg,
+  'branding': brandingImg,
+  'creative-content': creativeContentImg,
+  'social-media': socialMediaImg,
+  'campaigns': campaignsImg,
+  'video-production': videoProductionImg
+};
+
 // Detailed content for each service
 const serviceDetails: Record<string, { 
   overview: string; 
@@ -281,6 +304,9 @@ const ServiceDetailPage: React.FC = () => {
   // Get detailed content for this service
   const details = service ? serviceDetails[service.id] : null;
   
+  // Get the image for this service
+  const serviceImage = service ? (serviceImages[service.id] || defaultServiceImg) : defaultServiceImg;
+  
   // If service not found, show a message
   if (!service || !details) {
     return (
@@ -323,16 +349,9 @@ const ServiceDetailPage: React.FC = () => {
           {/* Service image */}
           <div className="h-96 overflow-hidden">
             <motion.img 
-              src={`/src/assets/services/${service.id}.jpg`}
+              src={serviceImage}
               alt={service.title}
               className="w-full h-full object-cover"
-              onError={({ currentTarget }) => {
-                // Try default image if specific service image fails
-                currentTarget.src = "/src/assets/services/default-service.jpg";
-                // If default image also fails, show SVG fallback
-                currentTarget.onerror = null;
-                currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23bae6fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='30' fill='%230c4a6e'%3E" + encodeURIComponent(service.title) + "%3C/text%3E%3C/svg%3E";
-              }}
             />
           </div>
 

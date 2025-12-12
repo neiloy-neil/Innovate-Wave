@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Card from './Card';
+import logo from '../assets/innovatewavelogo.png';
 
 const Footer: React.FC = () => {
   return (
@@ -18,7 +19,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center mb-4">
                 <div className="bg-white/10 p-2 rounded-xl backdrop-blur-sm border border-white/20">
                   <img 
-                    src="/src/assets/innovatewavelogo.png" 
+                    src={logo} 
                     alt="Innovate Wave" 
                     className="h-10 w-auto"
                   />
