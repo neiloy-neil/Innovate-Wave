@@ -57,13 +57,15 @@ const ServicesOverviewSection: React.FC = () => {
                       <h3 className="ml-4 text-xl font-bold text-sky-900">{service.title}</h3>
                     </div>
                     <p className="text-sky-700 mb-4">{service.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {service.tags.map((tag, tagIndex) => (
-                        <span key={tagIndex} className="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs font-medium rounded">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+                    {service.features && (
+                      <div className="flex flex-wrap gap-2">
+                        {service.features.slice(0, 3).map((feature, featureIndex) => (
+                          <span key={featureIndex} className="px-2 py-1 bg-cyan-100 text-cyan-800 text-xs font-medium rounded">
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </Card>
               </Link>

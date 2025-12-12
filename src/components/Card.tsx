@@ -6,6 +6,8 @@ interface CardProps extends MotionProps {
   className?: string;
   onClick?: () => void;
   id?: string;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const Card: React.FC<CardProps> = ({ 
@@ -13,6 +15,8 @@ const Card: React.FC<CardProps> = ({
   className = '', 
   onClick, 
   id,
+  onMouseEnter,
+  onMouseLeave,
   whileHover,
   whileTap,
   ...props
@@ -27,6 +31,8 @@ const Card: React.FC<CardProps> = ({
       id={id} 
       className={classes} 
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       whileHover={whileHover || { y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
       whileTap={whileTap || { scale: 0.98 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}

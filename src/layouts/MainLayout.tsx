@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Outlet } from 'react-router-dom';
 
 interface MainLayoutProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
@@ -46,7 +47,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <Header />
       </div>
       <main className="flex-grow relative pt-20">
-        {children}
+        {children ? children : <Outlet />}
         {/* Ripple effects */}
         {ripples.map(ripple => (
           <div

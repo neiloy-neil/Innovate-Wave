@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Homepage from './pages/Homepage';
 import AboutPage from './pages/AboutPage';
@@ -8,6 +8,23 @@ import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
 import PortfolioDetailPage from './pages/PortfolioDetailPage';
 import ServiceDetailPage from './pages/services/ServiceDetailPage';
+
+// Create router configuration
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      { index: true, element: <Homepage /> },
+      { path: '/about', element: <AboutPage /> },
+      { path: '/services', element: <ServicesPage /> },
+      { path: '/portfolio', element: <PortfolioPage /> },
+      { path: '/portfolio/:id', element: <PortfolioDetailPage /> },
+      { path: '/services/:id', element: <ServiceDetailPage /> },
+      { path: '/contact', element: <ContactPage /> },
+    ],
+  },
+]);
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,17 +74,7 @@ const App: React.FC = () => {
   
   return (
     <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-sky-50 to-cyan-100 relative overflow-hidden">
-      <MainLayout>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/portfolio/:id" element={<PortfolioDetailPage />} />
-          <Route path="/services/:id" element={<ServiceDetailPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </MainLayout>
+      <RouterProvider router={router} />
     </div>
   );
 };

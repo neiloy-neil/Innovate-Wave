@@ -69,13 +69,20 @@ const FeaturedCreativeContentSection: React.FC = () => {
               {/* Make the entire card clickable */}
               <a href={`/portfolio/${item.id}`} className="block h-full">
                 <Card className="overflow-hidden tech-glow water-texture h-full">
-                  <motion.div 
-                    className="h-48 bg-gradient-to-br from-sky-200 to-cyan-300"
-                    animate={{
-                      scale: hoveredItem === item.id ? 1.05 : 1
-                    }}
-                    transition={{ duration: 0.3 }}
-                  ></motion.div>
+                  <div className="h-48 overflow-hidden">
+                    <motion.img 
+                      src={item.imageUrl}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                      animate={{
+                        scale: hoveredItem === item.id ? 1.05 : 1
+                      }}
+                      transition={{ duration: 0.3 }}
+                      onError={({ currentTarget }) => {
+                        currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23bae6fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%230c4a6e'%3E" + encodeURIComponent(item.title) + "%3C/text%3E%3C/svg%3E";
+                      }}
+                    />
+                  </div>
                   <div className="p-6">
                     <div className="flex justify-between items-center">
                       <motion.span 
