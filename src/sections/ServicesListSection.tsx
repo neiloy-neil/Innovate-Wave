@@ -3,6 +3,7 @@ import SectionContainer from '../components/SectionContainer';
 import Card from '../components/Card';
 import { services } from '../data/mockData';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const ServicesListSection: React.FC = () => {
   const [hoveredService, setHoveredService] = useState<string | null>(null);
@@ -76,12 +77,12 @@ const ServicesListSection: React.FC = () => {
                   )}
                 </div>
                 <div className="px-6 pb-6">
-                  <a 
-                    href={`/services/${service.id}`}
+                  <Link 
+                    to={`/services/${service.id}`}
                     className="w-full py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors block text-center btn-animated"
                   >
                     Learn More
-                  </a>
+                  </Link>
                 </div>
               </Card>
             </motion.div>

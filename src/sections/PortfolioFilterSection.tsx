@@ -3,6 +3,7 @@ import SectionContainer from '../components/SectionContainer';
 import Card from '../components/Card';
 import { portfolioItems } from '../data/mockData';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const PortfolioFilterSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -93,7 +94,7 @@ const PortfolioFilterSection: React.FC = () => {
               className="h-full"
             >
               {/* Make the entire card clickable */}
-              <a href={item.link} className="block h-full">
+              <Link to={`/portfolio/${item.id}`} className="block h-full">
                 <Card 
                   className="h-full flex flex-col tech-glow water-texture card-hover overflow-hidden"
                 >
@@ -134,7 +135,7 @@ const PortfolioFilterSection: React.FC = () => {
                     </span>
                   </div>
                 </Card>
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>
