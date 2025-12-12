@@ -1,78 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import Button from './Button';
+import Card from './Card';
 
 const Footer: React.FC = () => {
-  // Handle navigation without full page refresh
-  const handleNavigation = (path: string) => {
-    window.history.pushState({}, '', path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  };
-  
   return (
-    <footer className="bg-gradient-to-r from-[#0c4a6e] to-[#0284c7] text-white relative overflow-hidden">
-      {/* Ocean depth effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-white to-transparent opacity-10"></div>
-        
-        {/* Gentle bubbles */}
-        {[...Array(15)].map((_, i) => (
+    <footer className="bg-gradient-to-r from-cyan-800 to-sky-900 text-white relative overflow-hidden">
+      <div className="container mx-auto px-6 py-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <motion.div
-            key={i}
-            className="absolute rounded-full bg-[#7dd3fc] opacity-10"
-            style={{
-              width: Math.random() * 15 + 5,
-              height: Math.random() * 15 + 5,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, Math.random() * 30 - 15],
-              x: [0, Math.random() * 20 - 10],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-              delay: Math.random() * 5,
-            }}
-          />
-        ))}
-      </div>
-      
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          <motion.div
-            className="lg:col-span-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-bold mb-4">Innovate Wave</h3>
-            <p className="text-[#bae6fd] mb-6">
-              Navigating the digital seas with creative solutions crafted in Bangladesh for global businesses.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <button onClick={() => handleNavigation('/services')}>
-                <Button 
-                  variant="primary" 
-                  size="medium" 
-                  className="tech-glow"
-                >
-                  Our Services
-                </Button>
-              </button>
-              <button onClick={() => handleNavigation('/contact')}>
-                <Button 
-                  variant="outline" 
-                  size="medium" 
-                  className="bg-transparent border border-white text-white hover:bg-white hover:text-[#0c4a6e]"
-                >
-                  Get in Touch
-                </Button>
-              </button>
-            </div>
+            <Card className="bg-gradient-to-br from-cyan-700/30 to-sky-800/30 backdrop-blur-sm border border-cyan-600/30 tech-glow">
+              <div className="flex items-center mb-4">
+                <div className="bg-white/10 p-2 rounded-xl backdrop-blur-sm border border-white/20">
+                  <img 
+                    src="/src/assets/innovatewavelogo.png" 
+                    alt="Innovate Wave" 
+                    className="h-10 w-auto"
+                  />
+                </div>
+                <span className="ml-3 text-xl font-bold">Innovate Wave</span>
+              </div>
+              <p className="text-[#bae6fd] mb-4">
+                Transforming ideas into digital realities with cutting-edge technology and creative design.
+              </p>
+            </Card>
           </motion.div>
           
           <motion.div
@@ -84,29 +40,29 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Services</h4>
             <ul className="space-y-2">
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services#web-design" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                <Link to="/services#web-design" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Web Design
-                </a>
+                </Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services#branding" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                <Link to="/services#branding" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Brand Identity
-                </a>
+                </Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services#seo" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                <Link to="/services#seo" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   SEO
-                </a>
+                </Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services#affiliate-marketing" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                <Link to="/services#affiliate-marketing" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Affiliate Marketing
-                </a>
+                </Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/services" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                <Link to="/services" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   View All Services
-                </a>
+                </Link>
               </motion.li>
             </ul>
           </motion.div>
@@ -120,19 +76,19 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/about" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                <Link to="/about" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   About Us
-                </a>
+                </Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/portfolio" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                <Link to="/portfolio" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Portfolio
-                </a>
+                </Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-                <a href="/contact" className="text-[#bae6fd] hover:text-white w-full text-left block">
+                <Link to="/contact" className="text-[#bae6fd] hover:text-white w-full text-left block">
                   Contact
-                </a>
+                </Link>
               </motion.li>
             </ul>
           </motion.div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { services } from '../../data/mockData';
 import SectionContainer from '../../components/SectionContainer';
 import Card from '../../components/Card';
@@ -271,15 +272,14 @@ const serviceDetails: Record<string, {
 };
 
 const ServiceDetailPage: React.FC = () => {
-  // Get the service ID from the URL
-  const pathParts = window.location.pathname.split('/');
-  const serviceId = pathParts[pathParts.length - 1];
+  // Get the service ID from the URL params
+  const { id } = useParams<{ id: string }>();
   
   // Find the service
-  const service = services.find(s => s.id === serviceId);
+  const service = services.find(s => s.id === id);
   
   // Get detailed content for this service
-  const details = serviceDetails[serviceId];
+  const details = service ? serviceDetails[service.id] : null;
   
   // If service not found, show a message
   if (!service || !details) {
@@ -288,12 +288,12 @@ const ServiceDetailPage: React.FC = () => {
         <div className="text-center">
           <h1 className="text-3xl font-bold text-sky-900 mb-4">Service Not Found</h1>
           <p className="text-sky-700 mb-8">The service you're looking for doesn't exist or has been moved.</p>
-          <button 
-            onClick={() => window.history.back()}
+          <Link 
+            to="/services"
             className="px-6 py-3 bg-sky-600 text-white rounded-lg font-medium hover:bg-sky-700 transition-colors"
           >
-            Go Back
-          </button>
+            Back to Services
+          </Link>
         </div>
       </SectionContainer>
     );
@@ -303,15 +303,15 @@ const ServiceDetailPage: React.FC = () => {
     <SectionContainer className="bg-gradient-to-br from-sky-50 to-cyan-50 relative overflow-hidden water-texture py-20">
       {/* Back button */}
       <div className="mb-8">
-        <a 
-          href="/services"
+        <Link 
+          to="/services"
           className="flex items-center text-sky-700 hover:text-sky-900 transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
           </svg>
           Back to Services
-        </a>
+        </Link>
       </div>
 
       <motion.div
@@ -323,7 +323,7 @@ const ServiceDetailPage: React.FC = () => {
           {/* Service image */}
           <div className="h-96 overflow-hidden">
             <motion.img 
-              src={`/src/assets/services/${serviceId}.jpg`}
+              src={`/src/assets/services/${service.id}.jpg`}
               alt={service.title}
               className="w-full h-full object-cover"
               onError={({ currentTarget }) => {
@@ -477,12 +477,12 @@ const ServiceDetailPage: React.FC = () => {
               transition={{ duration: 0.5, delay: 1.0 }}
             >
               <p className="text-sky-700 mb-4">Ready to get started with {service.title}?</p>
-              <a 
-                href="/contact"
+              <Link 
+                to="/contact"
                 className="px-6 py-3 bg-sky-600 text-white rounded-lg font-medium hover:bg-sky-700 transition-colors shadow-lg hover:shadow-sky-500/30 inline-block"
               >
                 Contact Us
-              </a>
+              </Link>
             </motion.div>
           </div>
         </Card>

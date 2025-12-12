@@ -1,88 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SectionContainer from '../components/SectionContainer';
 import Button from '../components/Button';
-import { motion } from 'framer-motion';
 
 const CTABannerSection: React.FC = () => {
-  const [bubbles, setBubbles] = useState<{id: number, size: number, left: string, delay: number}[]>([]);
-  
-  useEffect(() => {
-    // Create floating bubbles
-    const createBubbles = () => {
-      const newBubbles = [];
-      for (let i = 0; i < 20; i++) {
-        newBubbles.push({
-          id: i,
-          size: Math.random() * 25 + 8,
-          left: `${Math.random() * 100}%`,
-          delay: Math.random() * 7
-        });
-      }
-      setBubbles(newBubbles);
-    };
-    
-    createBubbles();
-  }, []);
-  
-  // Handle navigation without full page refresh
-  const handleNavigation = (path: string) => {
-    window.history.pushState({}, '', path);
-    window.dispatchEvent(new PopStateEvent('popstate'));
-  };
-  
   return (
-    <SectionContainer className="deep-ocean-gradient relative overflow-hidden particle-effect">
-      {/* Animated bubbles -->
-      <div className="absolute inset-0 overflow-hidden">
-        {bubbles.map(bubble => (
-          <motion.div
-            key={bubble.id}
-            className="absolute rounded-full bg-white bg-opacity-20"
+    <SectionContainer className="bg-gradient-to-r from-cyan-700 to-sky-800 text-white relative overflow-hidden py-20">
+      {/* Enhanced bubble background */}
+      <div className="absolute inset-0 opacity-20">
+        {[...Array(20)].map((_, i) => (
+          <div 
+            key={i}
+            className="absolute rounded-full bg-white"
             style={{
-              width: bubble.size,
-              height: bubble.size,
-              left: bubble.left,
-              bottom: '-50px'
-            }}
-            animate={{
-              y: [-50, -window.innerHeight - 100],
-              x: [0, Math.random() * 100 - 50]
-            }}
-            transition={{
-              duration: Math.random() * 15 + 15,
-              repeat: Infinity,
-              delay: bubble.delay,
-              ease: "linear"
+              width: `${Math.random() * 60 + 20}px`,
+              height: `${Math.random() * 60 + 20}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              opacity: `${Math.random() * 0.3 + 0.1}`,
+              animation: `float ${Math.random() * 10 + 10}s infinite ease-in-out`
             }}
           />
         ))}
       </div>
       
       <motion.div 
-        className="max-w-7xl mx-auto text-center relative z-10"
+        className="relative z-10 text-center max-w-3xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5 }}
       >
         <motion.h2 
-          className="text-3xl font-extrabold text-white sm:text-4xl"
+          className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <span className="block">Ready to Ride the Digital Waves?</span>
+          <span className="block">Ready to Ride the Wave</span>
+          <span className="block text-cyan-300">of Digital Success?</span>
         </motion.h2>
+        
         <motion.p 
-          className="mt-4 max-w-3xl mx-auto text-xl text-sky-200"
+          className="mt-4 text-xl text-cyan-100 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          Let's navigate the digital seas together and chart a course for your brand's success.
+          Let's transform your digital vision into reality. Our team of experts is ready to help you navigate the digital landscape and achieve your business goals.
         </motion.p>
+        
         <motion.div 
           className="mt-8 flex flex-col sm:flex-row justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
@@ -90,7 +60,7 @@ const CTABannerSection: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <a href="/services">
+          <Link to="/services">
             <Button 
               variant="primary" 
               size="large"
@@ -100,8 +70,8 @@ const CTABannerSection: React.FC = () => {
             >
               Explore Services
             </Button>
-          </a>
-          <a href="/contact">
+          </Link>
+          <Link to="/contact">
             <Button 
               variant="outline" 
               size="large" 
@@ -111,7 +81,7 @@ const CTABannerSection: React.FC = () => {
             >
               Get in Touch
             </Button>
-          </a>
+          </Link>
         </motion.div>
       </motion.div>
       

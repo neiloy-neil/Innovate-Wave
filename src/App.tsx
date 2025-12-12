@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import Homepage from './pages/Homepage';
 import AboutPage from './pages/AboutPage';
@@ -10,58 +11,6 @@ import ServiceDetailPage from './pages/services/ServiceDetailPage';
 
 const App: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [currentPage, setCurrentPage] = useState<string>('');
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-
-  // Function to get current page path
-  const getCurrentPage = () => {
-    return window.location.pathname;
-  };
-
-  // Initialize and update currentPage
-  useEffect(() => {
-    // Set initial page
-    setCurrentPage(getCurrentPage());
-    
-    // Listen for popstate events (browser back/forward buttons)
-    const handlePopState = () => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentPage(getCurrentPage());
-        setIsTransitioning(false);
-      }, 150);
-    };
-    
-    // Listen for hashchange events
-    const handleHashChange = () => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentPage(getCurrentPage());
-        setIsTransitioning(false);
-      }, 150);
-    };
-    
-    window.addEventListener('popstate', handlePopState);
-    window.addEventListener('hashchange', handleHashChange);
-    
-    // Also check for page changes periodically (in case of full refresh issues)
-    const interval = setInterval(() => {
-      const currentPath = getCurrentPage();
-      if (currentPath !== currentPage) {
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setCurrentPage(currentPath);
-          setIsTransitioning(false);
-        }, 150);
-      }
-    }, 100);
-    
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-      window.removeEventListener('hashchange', handleHashChange);
-      clearInterval(interval);
-    };
-  }, [currentPage]);
 
   useEffect(() => {
     const createBubble = () => {
@@ -106,49 +55,18 @@ const App: React.FC = () => {
     };
   }, []);
   
-  // Render the appropriate page based on the current path
-  const renderPage = () => {
-    // Check if it's a portfolio detail page
-    if (currentPage.startsWith('/portfolio/')) {
-      // Extract the portfolio item ID
-      const pathParts = currentPage.split('/');
-      if (pathParts.length >= 3 && pathParts[2]) {
-        return <PortfolioDetailPage />;
-      }
-    }
-    
-    // Check if it's a service detail page
-    if (currentPage.startsWith('/services/')) {
-      // Extract the service ID
-      const pathParts = currentPage.split('/');
-      if (pathParts.length >= 3 && pathParts[2]) {
-        return <ServiceDetailPage />;
-      }
-    }
-    
-    switch (currentPage) {
-      case '/':
-        return <Homepage />;
-      case '/about':
-        return <AboutPage />;
-      case '/services':
-        return <ServicesPage />;
-      case '/portfolio':
-        return <PortfolioPage />;
-      case '/contact':
-        return <ContactPage />;
-      default:
-        // For any unknown routes, show the homepage
-        return <Homepage />;
-    }
-  };
-  
   return (
     <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-sky-50 to-cyan-100 relative overflow-hidden">
       <MainLayout>
-        <div className={`page-transition ${isTransitioning ? '' : 'appear'}`}>
-          {renderPage()}
-        </div>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/portfolio/:id" element={<PortfolioDetailPage />} />
+          <Route path="/services/:id" element={<ServiceDetailPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </MainLayout>
     </div>
   );
