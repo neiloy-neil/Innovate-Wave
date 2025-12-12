@@ -93,11 +93,10 @@ const PortfolioFilterSection: React.FC = () => {
               whileHover={{ y: -5 }}
               className="h-full"
             >
-              {/* Make the entire card clickable */}
-              <Link to={`/portfolio/${item.id}`} className="block h-full">
-                <Card 
-                  className="h-full flex flex-col tech-glow water-texture card-hover overflow-hidden"
-                >
+              <Card 
+                className="h-full flex flex-col tech-glow water-texture card-hover overflow-hidden"
+              >
+                <Link to={`/portfolio/${item.id}`} className="block h-full">
                   <div className="relative">
                     <motion.img 
                       src={item.imageUrl}
@@ -128,14 +127,16 @@ const PortfolioFilterSection: React.FC = () => {
                       <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.category}</span>
                       <span className="px-2 py-1 bg-sky-100 text-sky-800 text-xs rounded-full">{item.date}</span>
                     </div>
-                    <span 
-                      className="mt-4 inline-block px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors"
-                    >
-                      View Project
-                    </span>
+                    <div className="mt-4">
+                      <span 
+                        className="inline-block px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-medium hover:bg-sky-700 transition-colors"
+                      >
+                        View Project
+                      </span>
+                    </div>
                   </div>
-                </Card>
-              </Link>
+                </Link>
+              </Card>
             </motion.div>
           ))}
         </div>
