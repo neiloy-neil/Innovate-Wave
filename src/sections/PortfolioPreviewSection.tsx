@@ -88,17 +88,16 @@ const PortfolioPreviewSection: React.FC = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <Link to="/portfolio">
-            <Button 
-              variant="primary" 
-              size="large"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="tech-glow"
-            >
-              View Full Portfolio
-            </Button>
-          </Link>
+          <Button 
+            variant="primary" 
+            size="large"
+            href="/portfolio"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="tech-glow"
+          >
+            View Full Portfolio
+          </Button>
         </div>
       </div>
       

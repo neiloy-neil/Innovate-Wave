@@ -351,6 +351,7 @@ const ServiceDetailPage: React.FC = () => {
             <motion.img 
               src={serviceImage}
               alt={service.title}
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </div>

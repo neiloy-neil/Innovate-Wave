@@ -8,6 +8,8 @@ import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
 import PortfolioDetailPage from './pages/PortfolioDetailPage';
 import ServiceDetailPage from './pages/services/ServiceDetailPage';
+import NotFoundPage from './pages/NotFoundPage';
+import CreativeContentDetailPage from './pages/CreativeContentDetailPage';
 
 // Create router configuration
 const router = createBrowserRouter([
@@ -21,7 +23,9 @@ const router = createBrowserRouter([
       { path: '/portfolio', element: <PortfolioPage /> },
       { path: '/portfolio/:id', element: <PortfolioDetailPage /> },
       { path: '/services/:id', element: <ServiceDetailPage /> },
+      { path: '/creative/:id', element: <CreativeContentDetailPage /> },
       { path: '/contact', element: <ContactPage /> },
+      { path: '*', element: <NotFoundPage /> },
     ],
   },
 ]);
@@ -32,6 +36,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const createBubble = () => {
       if (!containerRef.current) return;
+      if (containerRef.current.getElementsByClassName('bubble').length >= 15) return;
       
       const bubble = document.createElement('div');
       bubble.className = 'bubble';

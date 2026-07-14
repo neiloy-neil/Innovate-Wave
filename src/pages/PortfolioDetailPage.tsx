@@ -185,9 +185,13 @@ const PortfolioDetailPage: React.FC = () => {
             <motion.img 
               src={portfolioItem.imageUrl}
               alt={portfolioItem.title}
+              loading="lazy"
+              width="800"
+              height="600"
               className="w-full h-full object-cover"
               onError={({ currentTarget }) => {
-                currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%23bae6fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='30' fill='%230c4a6e'%3E" + encodeURIComponent(portfolioItem.title) + "%3C/text%3E%3C/svg%3E";
+                const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600"><rect width="800" height="600" fill="#bae6fd"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="30" fill="#0c4a6e">${portfolioItem.title}</text></svg>`;
+                currentTarget.src = `data:image/svg+xml,${encodeURIComponent(svgStr)}`;
               }}
             />
           </div>
@@ -305,10 +309,6 @@ const PortfolioDetailPage: React.FC = () => {
                 <div className="bg-sky-50 p-4 rounded-lg">
                   <h3 className="font-semibold text-sky-800 mb-2">Date</h3>
                   <p className="text-sky-700">{portfolioItem.date}</p>
-                </div>
-                <div className="bg-sky-50 p-4 rounded-lg">
-                  <h3 className="font-semibold text-sky-800 mb-2">ID</h3>
-                  <p className="text-sky-700">{portfolioItem.id}</p>
                 </div>
               </div>
             </motion.div>

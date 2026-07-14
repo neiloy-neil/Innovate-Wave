@@ -60,28 +60,26 @@ const CTABannerSection: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <Link to="/services">
-            <Button 
-              variant="primary" 
-              size="large"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="tech-glow"
-            >
-              Explore Services
-            </Button>
-          </Link>
-          <Link to="/contact">
-            <Button 
-              variant="outline" 
-              size="large" 
-              className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-[#bae6fd] tech-glow"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get in Touch
-            </Button>
-          </Link>
+          <Button 
+            variant="primary" 
+            size="large"
+            href="/services"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="tech-glow"
+          >
+            Explore Services
+          </Button>
+          <Button 
+            variant="outline" 
+            size="large" 
+            href="/contact"
+            className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-[#bae6fd] tech-glow"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Get in Touch
+          </Button>
         </motion.div>
       </motion.div>
       

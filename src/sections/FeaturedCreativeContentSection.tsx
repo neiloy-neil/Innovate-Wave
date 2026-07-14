@@ -68,19 +68,21 @@ const FeaturedCreativeContentSection: React.FC = () => {
               onHoverEnd={() => setHoveredItem(null)}
             >
               {/* Make the entire card clickable */}
-              <Link to={`/portfolio/${item.id}`} className="block h-full">
+              <Link to={`/creative/${item.id}`} className="block h-full">
                 <Card className="overflow-hidden tech-glow water-texture h-full backdrop-blur-sm bg-white/50 border border-cyan-200/50">
                   <div className="h-48 overflow-hidden">
                     <motion.img 
                       src={item.imageUrl}
                       alt={item.title}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                       animate={{
                         scale: hoveredItem === item.id ? 1.05 : 1
                       }}
                       transition={{ duration: 0.3 }}
                       onError={({ currentTarget }) => {
-                        currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23bae6fd'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%230c4a6e'%3E" + encodeURIComponent(item.title) + "%3C/text%3E%3C/svg%3E";
+                        const svgStr = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="#bae6fd"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#0c4a6e">${item.title}</text></svg>`;
+                        currentTarget.src = `data:image/svg+xml,${encodeURIComponent(svgStr)}`;
                       }}
                     />
                   </div>

@@ -71,30 +71,28 @@ const HeroSection: React.FC = () => {
               >
                 <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:flex sm:space-x-4">
                   <div className="rounded-md shadow">
-                    <Link to="/services">
-                      <Button 
-                        variant="primary" 
-                        size="large"
-                        whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-                        whileTap={{ scale: 0.95 }}
-                        className="tech-glow btn-animated bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500"
-                      >
-                        Dive In
-                      </Button>
-                    </Link>
+                    <Button 
+                      variant="primary" 
+                      size="large"
+                      href="/services"
+                      whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                      whileTap={{ scale: 0.95 }}
+                      className="tech-glow btn-animated bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500"
+                    >
+                      Dive In
+                    </Button>
                   </div>
                   <div className="mt-3 sm:mt-0">
-                    <Link to="/contact">
-                      <Button 
-                        variant="outline" 
-                        size="large" 
-                        className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-cyan-400/50 hover:border-cyan-300 tech-glow btn-animated"
-                        whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Explore More
-                      </Button>
-                    </Link>
+                    <Button 
+                      variant="outline" 
+                      size="large" 
+                      href="/contact"
+                      className="bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-cyan-400/50 hover:border-cyan-300 tech-glow btn-animated"
+                      whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Explore More
+                    </Button>
                   </div>
                 </div>
               </motion.div>
@@ -117,11 +115,11 @@ const HeroSection: React.FC = () => {
           }}
         >
           {/* Enhanced visualization with multiple layers */}
-          <div className="absolute inset-0 opacity-30">
+          <div className="absolute inset-0">
             <img 
-              src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%230ea5e9;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%230284c7;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,200 Q150,100 300,200 T600,200 L600,400 L0,400 Z' fill='url(%23grad1)'/%3E%3Ccircle cx='100' cy='150' r='20' fill='%237dd3fc'/%3E%3Ccircle cx='200' cy='180' r='15' fill='%237dd3fc'/%3E%3Ccircle cx='400' cy='160' r='25' fill='%237dd3fc'/%3E%3C/svg%3E" 
-              alt="Wave visualization"
-              className="w-full h-full object-cover"
+              src="/assets/hero-visual.png" 
+              alt="Digital Innovation Visualization"
+              className="w-full h-full object-cover rounded-xl shadow-2xl"
             />
           </div>
           

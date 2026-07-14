@@ -108,7 +108,8 @@ const Footer: React.FC = () => {
             </address>
             <div className="flex space-x-4">
               <motion.a 
-                href="#" 
+                href="#"
+                aria-label="Visit our Twitter/X page"
                 whileHover={{ scale: 1.2 }} 
                 whileTap={{ scale: 0.9 }}
                 className="text-[#bae6fd] hover:text-white"
@@ -118,7 +119,8 @@ const Footer: React.FC = () => {
                 </svg>
               </motion.a>
               <motion.a 
-                href="#" 
+                href="#"
+                aria-label="Visit our Instagram page"
                 whileHover={{ scale: 1.2 }} 
                 whileTap={{ scale: 0.9 }}
                 className="text-[#bae6fd] hover:text-white"
@@ -128,7 +130,8 @@ const Footer: React.FC = () => {
                 </svg>
               </motion.a>
               <motion.a 
-                href="#" 
+                href="#"
+                aria-label="Visit our LinkedIn page"
                 whileHover={{ scale: 1.2 }} 
                 whileTap={{ scale: 0.9 }}
                 className="text-[#bae6fd] hover:text-white"

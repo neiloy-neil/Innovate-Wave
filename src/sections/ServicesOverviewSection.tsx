@@ -80,15 +80,14 @@ const ServicesOverviewSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Link to="/services">
-              <Button 
-                variant="primary" 
-                size="large" 
-                className="tech-glow px-8 py-4 text-lg font-bold"
-              >
-                Explore All Services
-              </Button>
-            </Link>
+            <Button 
+              variant="primary" 
+              size="large" 
+              href="/services"
+              className="tech-glow px-8 py-4 text-lg font-bold"
+            >
+              Explore All Services
+            </Button>
           </motion.div>
         </div>
       </div>

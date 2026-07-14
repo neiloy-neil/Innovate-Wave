@@ -22,6 +22,12 @@ import technovaReelImg from '../assets/creative/technova-reel.jpg';
 import wanderlustIdentityImg from '../assets/creative/wanderlust-identity.jpg';
 import vitawellPackagingImg from '../assets/creative/vitawell-packaging.jpg';
 
+// Import testimonial avatars
+const avatar1 = '/assets/avatar-1.png';
+const avatar2 = '/assets/avatar-2.png';
+const avatar3 = '/assets/avatar-3.png';
+const avatar4 = '/assets/avatar-4.png';
+
 // Mock services data - focused on creative services
 export const services: ServiceItem[] = [
   {
@@ -241,7 +247,8 @@ export const testimonials: Testimonial[] = [
     role: 'Marketing Director',
     company: 'EcoLife Apparel',
     content: 'Innovate Wave transformed our brand identity. Their creative approach helped us connect with our target audience in ways we never imagined.',
-    rating: 5
+    rating: 5,
+    avatarUrl: avatar1
   },
   {
     id: '2',
@@ -249,7 +256,8 @@ export const testimonials: Testimonial[] = [
     role: 'CEO',
     company: 'WealthTrack Inc.',
     content: 'The campaign strategy developed by Innovate Wave delivered exceptional results. Our brand recognition increased by 150% in just three months.',
-    rating: 5
+    rating: 5,
+    avatarUrl: avatar2
   },
   {
     id: '3',
@@ -257,7 +265,8 @@ export const testimonials: Testimonial[] = [
     role: 'Founder',
     company: 'GourmetHub',
     content: 'Working with Innovate Wave was a game-changer for our restaurant. Their branding elevated our entire customer experience.',
-    rating: 4
+    rating: 4,
+    avatarUrl: avatar3
   },
   {
     id: '4',
@@ -265,7 +274,8 @@ export const testimonials: Testimonial[] = [
     role: 'Brand Manager',
     company: 'VitaWell',
     content: 'The creative content produced by Innovate Wave consistently exceeds our expectations. They understand our brand vision perfectly.',
-    rating: 5
+    rating: 5,
+    avatarUrl: avatar4
   }
 ];
 

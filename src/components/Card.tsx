@@ -21,8 +21,8 @@ const Card: React.FC<CardProps> = ({
   whileTap,
   ...props
 }) => {
-  const baseClasses = 'bg-white/70 rounded-xl shadow-md overflow-hidden backdrop-blur-sm transition-all duration-300 ease-in-out border border-cyan-200/50 water-texture tech-glow';
-  const clickableClasses = onClick ? 'cursor-pointer hover:shadow-lg' : '';
+  const baseClasses = 'bg-white/70 rounded-xl shadow-md overflow-hidden backdrop-blur-md transition-all duration-300 ease-in-out border border-cyan-300/40 water-texture tech-glow';
+  const clickableClasses = onClick ? 'cursor-pointer hover:shadow-xl hover:border-cyan-400/60' : '';
   
   const classes = `${baseClasses} ${clickableClasses} ${className}`;
   
@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      whileHover={whileHover || { y: -5, boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
+      whileHover={whileHover || { y: -8, scale: 1.02, boxShadow: "0 25px 30px -5px rgba(2, 132, 199, 0.15), 0 15px 15px -5px rgba(2, 132, 199, 0.05)" }}
       whileTap={whileTap || { scale: 0.98 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       {...props}

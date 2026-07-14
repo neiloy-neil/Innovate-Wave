@@ -21,8 +21,12 @@ const ContactFormSection: React.FC = () => {
     }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!e.currentTarget.checkValidity()) {
+      e.currentTarget.reportValidity();
+      return;
+    }
     // Form submission logic would go here
     console.log('Form submitted:', formData);
     alert('Thank you for your message! We will get back to you soon.');
@@ -87,7 +91,7 @@ const ContactFormSection: React.FC = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full px-4 py-2 border border-cyan-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 bg-white/70 backdrop-blur-sm"
+                className="mt-1 block w-full px-4 py-2 border border-cyan-300 rounded-md shadow-sm focus:outline-none focus:ring-4 focus:ring-cyan-500/50 focus:border-cyan-500 bg-white/90 text-sky-900 placeholder-sky-400 backdrop-blur-sm"
                 onFocus={() => setFocusedField('name')}
                 onBlur={() => setFocusedField(null)}
                 whileFocus={{ scale: 1.02 }}
@@ -106,7 +110,7 @@ const ContactFormSection: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full px-4 py-2 border border-cyan-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 bg-white/70 backdrop-blur-sm"
+                className="mt-1 block w-full px-4 py-2 border border-cyan-300 rounded-md shadow-sm focus:outline-none focus:ring-4 focus:ring-cyan-500/50 focus:border-cyan-500 bg-white/90 text-sky-900 placeholder-sky-400 backdrop-blur-sm"
                 onFocus={() => setFocusedField('email')}
                 onBlur={() => setFocusedField(null)}
                 whileFocus={{ scale: 1.02 }}
@@ -125,7 +129,7 @@ const ContactFormSection: React.FC = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full px-4 py-2 border border-cyan-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 bg-white/70 backdrop-blur-sm"
+                className="mt-1 block w-full px-4 py-2 border border-cyan-300 rounded-md shadow-sm focus:outline-none focus:ring-4 focus:ring-cyan-500/50 focus:border-cyan-500 bg-white/90 text-sky-900 placeholder-sky-400 backdrop-blur-sm"
                 onFocus={() => setFocusedField('subject')}
                 onBlur={() => setFocusedField(null)}
                 whileFocus={{ scale: 1.02 }}
@@ -144,7 +148,7 @@ const ContactFormSection: React.FC = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="mt-1 block w-full px-4 py-2 border border-cyan-300 rounded-md shadow-sm focus:ring-cyan-500 focus:border-cyan-500 bg-white/70 backdrop-blur-sm"
+                className="mt-1 block w-full px-4 py-2 border border-cyan-300 rounded-md shadow-sm focus:outline-none focus:ring-4 focus:ring-cyan-500/50 focus:border-cyan-500 bg-white/90 text-sky-900 placeholder-sky-400 backdrop-blur-sm"
                 onFocus={() => setFocusedField('message')}
                 onBlur={() => setFocusedField(null)}
                 whileFocus={{ scale: 1.02 }}

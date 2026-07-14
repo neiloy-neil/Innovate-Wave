@@ -119,7 +119,7 @@ const WhyChooseUsSection: React.FC = () => {
                 {feature.icon}
               </motion.div>
               <h3 className="mt-4 text-lg font-medium text-white">{feature.name}</h3>
-              <p className="mt-2 text-base text-sky-200">
+              <p className="mt-2 text-base text-sky-100">
                 {feature.description}
               </p>
             </motion.div>
@@ -134,16 +134,15 @@ const WhyChooseUsSection: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <div className="mt-8">
-              <a href="/contact">
-                <Button 
-                  variant="primary" 
-                  size="large"
-                  className="tech-glow px-8 py-4 text-lg font-bold"
-                >
-                  Begin Your Journey
-                </Button>
-              </a>
+            <div className="mt-8 text-center">
+              <Button 
+                variant="primary" 
+                size="large"
+                href="/contact"
+                className="tech-glow px-8 py-4 text-lg font-bold"
+              >
+                Begin Your Journey
+              </Button>
             </div>
           </motion.div>
         </div>

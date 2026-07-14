@@ -74,7 +74,8 @@ const Navbar: React.FC = () => {
         <div className={`${isMenuOpen ? 'block' : 'hidden'} w-full lg:block lg:w-auto`}>
           <div className="text-sm lg:flex lg:items-center lg:space-x-2 mt-4 lg:mt-0">
             <Link 
-              to="/about" 
+              to="/about"
+              onClick={() => setIsMenuOpen(false)}
               className={`block lg:inline-block mx-1 px-5 py-3 rounded-xl font-semibold transition-all duration-300 w-full text-left lg:w-auto ${
                 isScrolled 
                   ? 'text-cyan-100 hover:bg-cyan-900/50 hover:text-white' 
@@ -84,7 +85,8 @@ const Navbar: React.FC = () => {
               About
             </Link>
             <Link 
-              to="/services" 
+              to="/services"
+              onClick={() => setIsMenuOpen(false)}
               className={`block lg:inline-block mx-1 px-5 py-3 rounded-xl font-semibold transition-all duration-300 w-full text-left lg:w-auto ${
                 isScrolled 
                   ? 'text-cyan-100 hover:bg-cyan-900/50 hover:text-white' 
@@ -94,7 +96,8 @@ const Navbar: React.FC = () => {
               Services
             </Link>
             <Link 
-              to="/portfolio" 
+              to="/portfolio"
+              onClick={() => setIsMenuOpen(false)}
               className={`block lg:inline-block mx-1 px-5 py-3 rounded-xl font-semibold transition-all duration-300 w-full text-left lg:w-auto ${
                 isScrolled 
                   ? 'text-cyan-100 hover:bg-cyan-900/50 hover:text-white' 
@@ -104,7 +107,8 @@ const Navbar: React.FC = () => {
               Portfolio
             </Link>
             <Link 
-              to="/contact" 
+              to="/contact"
+              onClick={() => setIsMenuOpen(false)}
               className="block mt-2 lg:mt-0 mx-1 px-6 py-3 rounded-full text-white font-bold bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-400 hover:to-sky-500 transition-all duration-300 shadow-lg hover:shadow-cyan-500/40 w-full text-left lg:w-auto transform hover:scale-105"
             >
               Get Started
