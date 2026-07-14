@@ -40,10 +40,32 @@ export const updateMetaTags = (meta: MetaTags) => {
   }
   
   // Update Open Graph tags
+  updateOgTag('og:type', 'website');
+  updateOgTag('og:site_name', 'Innovate Wave');
   updateOgTag('og:title', meta.ogTitle || meta.title);
   updateOgTag('og:description', meta.ogDescription || meta.description);
   if (meta.ogImage) updateOgTag('og:image', meta.ogImage);
   if (meta.ogUrl) updateOgTag('og:url', meta.ogUrl);
+  
+  // Update Twitter tags
+  updateMetaName('twitter:card', 'summary_large_image');
+  updateMetaName('twitter:title', meta.ogTitle || meta.title);
+  updateMetaName('twitter:description', meta.ogDescription || meta.description);
+  if (meta.ogImage) updateMetaName('twitter:image', meta.ogImage);
+};
+
+const updateMetaName = (name: string, content: string) => {
+  if (!content) return;
+  
+  let metaTag = document.querySelector(`meta[name="${name}"]`);
+  if (metaTag) {
+    (metaTag as HTMLMetaElement).setAttribute('content', content);
+  } else {
+    metaTag = document.createElement('meta');
+    metaTag.setAttribute('name', name);
+    (metaTag as HTMLMetaElement).content = content;
+    document.head.appendChild(metaTag);
+  }
 };
 
 const updateOgTag = (property: string, content: string) => {
@@ -67,6 +89,6 @@ export const defaultSEO = {
   keywords: 'creative agency, branding, creative content, digital marketing, video production, photography',
   ogTitle: 'Innovate Wave - Creative Digital Agency',
   ogDescription: 'Crafting compelling creative experiences for forward-thinking brands worldwide.',
-  ogImage: '/src/assets/portfolio/eco-life.jpg',
+  ogImage: '/og-image.jpg',
   ogUrl: 'https://innovatewave.com'
 };

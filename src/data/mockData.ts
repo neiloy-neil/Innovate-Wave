@@ -1,3 +1,4 @@
+import React from 'react';
 import { ServiceItem, PortfolioItem, Testimonial, TeamMember, CreativeContentItem } from './interfaces';
 
 // Import portfolio images
@@ -27,6 +28,9 @@ export const services: ServiceItem[] = [
     id: 'web-design',
     title: 'Web Design',
     description: 'Modern, responsive websites designed to captivate audiences and drive engagement with seamless user experiences.',
+    icon: React.createElement('svg', { className: 'h-6 w-6 text-cyan-700', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' },
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' })
+    ),
     features: [
       'Custom Website Design',
       'Responsive Development',
@@ -38,6 +42,9 @@ export const services: ServiceItem[] = [
     id: 'seo',
     title: 'Search Engine Optimization',
     description: 'Strategic SEO services to improve your online visibility and drive organic traffic to your website.',
+    icon: React.createElement('svg', { className: 'h-6 w-6 text-cyan-700', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' },
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z' })
+    ),
     features: [
       'Keyword Research',
       'On-Page Optimization',
@@ -49,6 +56,9 @@ export const services: ServiceItem[] = [
     id: 'affiliate-marketing',
     title: 'Affiliate Marketing',
     description: 'Performance-based marketing programs that connect your brand with relevant partners to drive sales.',
+    icon: React.createElement('svg', { className: 'h-6 w-6 text-cyan-700', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' },
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1' })
+    ),
     features: [
       'Program Strategy',
       'Partner Recruitment',
@@ -60,6 +70,9 @@ export const services: ServiceItem[] = [
     id: 'branding',
     title: 'Brand Identity Design',
     description: 'Complete visual identity systems including logos, color palettes, typography, and brand guidelines.',
+    icon: React.createElement('svg', { className: 'h-6 w-6 text-cyan-700', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' },
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01' })
+    ),
     features: [
       'Logo Design',
       'Brand Guidelines',
@@ -71,6 +84,9 @@ export const services: ServiceItem[] = [
     id: 'creative-content',
     title: 'Creative Content Production',
     description: 'Compelling visual content for marketing, branding, and storytelling.',
+    icon: React.createElement('svg', { className: 'h-6 w-6 text-cyan-700', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' },
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' })
+    ),
     features: [
       'Concept Development',
       'Photography & Videography',
@@ -82,6 +98,9 @@ export const services: ServiceItem[] = [
     id: 'social-media',
     title: 'Social Media Creative',
     description: 'Engaging content designed for social media platforms and digital advertising.',
+    icon: React.createElement('svg', { className: 'h-6 w-6 text-cyan-700', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' },
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z' })
+    ),
     features: [
       'Content Calendars',
       'Short-form Videos',
@@ -93,6 +112,10 @@ export const services: ServiceItem[] = [
     id: 'campaigns',
     title: 'Campaign Strategy',
     description: 'Integrated marketing campaigns that combine creative excellence with data-driven performance metrics.',
+    icon: React.createElement('svg', { className: 'h-6 w-6 text-cyan-700', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' },
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z' }),
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z' })
+    ),
     features: [
       'Campaign Planning',
       'Creative Direction',
@@ -104,6 +127,9 @@ export const services: ServiceItem[] = [
     id: 'video-production',
     title: 'Video Production',
     description: 'Professional video content for branding, marketing and storytelling.',
+    icon: React.createElement('svg', { className: 'h-6 w-6 text-cyan-700', fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' },
+      React.createElement('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: 2, d: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z' })
+    ),
     features: [
       'Concept Development',
       'Production & Editing',

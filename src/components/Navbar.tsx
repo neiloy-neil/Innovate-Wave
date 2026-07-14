@@ -44,18 +44,17 @@ const Navbar: React.FC = () => {
       }`}>
         <div className="flex items-center flex-shrink-0 mr-6">
           <Link to="/" className="flex items-center group">
-            <div className="bg-gradient-to-br from-white/20 to-white/5 p-2 rounded-2xl backdrop-blur-sm border border-white/30 shadow-lg group-hover:scale-105 transition-transform duration-300">
+            <div className={`p-2 rounded-2xl backdrop-blur-sm border shadow-lg group-hover:scale-105 transition-all duration-500 ${
+                isScrolled
+                  ? 'bg-gradient-to-br from-white/90 to-white/70 border-white/60'
+                  : 'bg-gradient-to-br from-white/20 to-white/5 border-white/30'
+              }`}>
               <img 
                 src={logo} 
                 alt="Innovate Wave" 
                 className="h-14 w-auto drop-shadow-lg"
               />
             </div>
-            <span className={`ml-3 text-xl font-bold tracking-tight ${
-              isScrolled ? 'text-cyan-400' : 'text-white'
-            } transition-colors duration-300`}>
-              Innovate<span className="text-cyan-300">Wave</span>
-            </span>
           </Link>
         </div>
         

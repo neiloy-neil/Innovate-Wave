@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Outlet } from 'react-router-dom';
 
@@ -8,8 +8,7 @@ interface MainLayoutProps {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  const [ripples, setRipples] = useState<{id: number, x: number, y: number, size: number}[]>([]);
-  const [rippleId, setRippleId] = useState(0);
+  const [ripples, setRipples] = useState<{id: string, x: number, y: number, size: number}[]>([]);
   
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -21,14 +20,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       if (!isInteractiveElement) {
         // Create ripple effect on click
         const newRipple = {
-          id: rippleId,
+          id: `${Date.now()}-${Math.random()}`,
           x: e.clientX,
           y: e.clientY,
           size: Math.random() * 40 + 20 // Random size between 20-60px
         };
         
         setRipples(prev => [...prev, newRipple]);
-        setRippleId(prev => prev + 1);
         
         // Remove ripple after animation
         setTimeout(() => {
@@ -39,11 +37,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     
     window.addEventListener('click', handleClick);
     return () => window.removeEventListener('click', handleClick);
-  }, [rippleId]);
+  }, []);
   
   return (
     <div className="flex flex-col min-h-screen relative">
-      <Header />
+      <Navbar />
       <main className="flex-grow relative pt-24">
         {children ? children : <Outlet />}
         {/* Ripple effects */}

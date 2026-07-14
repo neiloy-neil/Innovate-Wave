@@ -1,9 +1,11 @@
+import React from 'react';
+
 // Service item interface
 export interface ServiceItem {
   id: string;
   title: string;
   description: string;
-  icon?: string;
+  icon?: React.ReactNode;
   features?: string[];
 }
 
