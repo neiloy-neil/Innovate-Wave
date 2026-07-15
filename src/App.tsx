@@ -10,6 +10,7 @@ import PortfolioDetailPage from './pages/PortfolioDetailPage';
 import ServiceDetailPage from './pages/services/ServiceDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 import CreativeContentDetailPage from './pages/CreativeContentDetailPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 // Create router configuration
 const router = createBrowserRouter([
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: '/services/:id', element: <ServiceDetailPage /> },
       { path: '/creative/:id', element: <CreativeContentDetailPage /> },
       { path: '/contact', element: <ContactPage /> },
+      { path: '/privacy-policy', element: <PrivacyPolicyPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
